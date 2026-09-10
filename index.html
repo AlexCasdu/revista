@@ -1,1007 +1,844 @@
 <!DOCTYPE html>
-
 <html lang="es">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>MOVIMIENTO EN ACCIÓN | Revista digital</title>
-<style>
-        /* ===== Variables ===== */
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>MOVIMIENTO EN ACCION | Revista digital de Educacion Fisica</title>
+    <meta name="description"
+        content="Revista digital de Educacion Fisica: desarrollo humano, capacidades fisicas y tendencias deportivas." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Outfit:wght@400;700;900&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
+    <style>
         :root {
-            --bg: #071018;
-            --bg-soft: #0e1723;
-            --panel: #111c2a;
-            --panel-2: #162234;
+            --bg: #060d16;
+            --panel: #0d1824;
+            --panel-2: #131f2e;
             --text: #eef3f8;
-            --muted: #b8c5d6;
-            --line: rgba(255, 255, 255, .1);
+            --muted: #8fa3ba;
+            --line: rgba(255, 255, 255, .09);
             --yellow: #ffd23f;
             --orange: #ff8a3d;
             --red: #ff4d5a;
-            --white: #ffffff;
-            --shadow: 0 20px 50px rgba(0, 0, 0, .28);
-            --radius: 24px;
-            --radius-sm: 16px;
-            --max: 1200px;
-        }
-
-        body.light {
-            --bg: #f4f6f8;
-            --bg-soft: #ffffff;
-            --panel: #ffffff;
-            --panel-2: #eef2f6;
-            --text: #111827;
-            --muted: #556274;
-            --line: rgba(17, 24, 39, .12);
-            --yellow: #f2b705;
-            --orange: #e66a20;
-            --red: #d62839;
-            --white: #111827;
-            --shadow: 0 18px 40px rgba(15, 23, 42, .08);
+            --green: #3dffc0;
+            --shadow: 0 24px 60px rgba(0, 0, 0, .45);
+            --font: 'Inter', 'Segoe UI', Arial, sans-serif;
+            --font-head: 'Outfit', 'Inter', Arial, sans-serif;
         }
 
         * {
-            box-sizing: border-box
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         html {
-            scroll-behavior: smooth
+            scroll-behavior: smooth;
         }
 
         body {
-            margin: 0;
-            font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
-            background:
-                radial-gradient(circle at top right, rgba(255, 138, 61, .12), transparent 30%),
-                radial-gradient(circle at left 20%, rgba(255, 210, 63, .08), transparent 25%),
-                linear-gradient(180deg, var(--bg) 0%, #060b11 100%);
+            font-family: var(--font);
+            background: radial-gradient(ellipse at top right, rgba(255, 138, 61, .15) 0%, transparent 45%), radial-gradient(ellipse at bottom left, rgba(255, 210, 63, .08) 0%, transparent 40%), linear-gradient(160deg, #06101a 0%, #030810 100%);
             color: var(--text);
-            line-height: 1.6;
-            transition: background .35s ease, color .35s ease;
-        }
-
-        body.light {
-            background:
-                radial-gradient(circle at top right, rgba(230, 106, 32, .10), transparent 30%),
-                radial-gradient(circle at left 20%, rgba(242, 183, 5, .10), transparent 25%),
-                linear-gradient(180deg, #f7f9fb 0%, #edf1f5 100%);
+            line-height: 1.55;
+            min-height: 100vh;
+            overflow: hidden;
         }
 
         a {
             color: inherit;
-            text-decoration: none
+            text-decoration: none;
         }
 
         img {
             max-width: 100%;
-            display: block
+            display: block;
         }
 
         button {
-            font: inherit
+            font: inherit;
+            cursor: pointer;
         }
 
-        /* ===== Barra progreso ===== */
-        .progress-wrap {
+        .site-nav {
             position: fixed;
-            inset: 0 0 auto 0;
-            height: 5px;
-            background: transparent;
-            z-index: 2000;
-        }
-
-        .progress-bar {
-            width: 0%;
-            height: 100%;
-            background: linear-gradient(90deg, var(--yellow), var(--orange), var(--red));
-            box-shadow: 0 0 20px rgba(255, 138, 61, .4);
-        }
-
-        /* ===== Navegación ===== */
-        .site-header {
-            position: sticky;
             top: 0;
-            z-index: 1500;
-            backdrop-filter: blur(14px);
-            background: rgba(7, 16, 24, .78);
-            border-bottom: 1px solid var(--line);
-        }
-
-        body.light .site-header {
-            background: rgba(255, 255, 255, .82)
-        }
-
-        .nav-inner {
-            max-width: var(--max);
-            margin: auto;
+            left: 0;
+            right: 0;
+            z-index: 900;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 1rem;
-            padding: .85rem 1rem;
+            padding: .6rem 1.4rem;
+            backdrop-filter: blur(16px);
+            background: rgba(6, 13, 22, .82);
+            border-bottom: 1px solid var(--line);
         }
 
         .brand {
             display: flex;
             align-items: center;
-            gap: .9rem;
-            min-width: 0;
+            gap: .75rem;
         }
 
-        .brand-badge {
-            width: 42px;
-            height: 42px;
+        .brand-logo {
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
+            background: linear-gradient(135deg, var(--yellow), var(--orange));
             display: grid;
             place-items: center;
-            background: linear-gradient(135deg, var(--yellow), var(--orange));
-            color: #111;
             font-weight: 900;
-            box-shadow: var(--shadow);
-            flex: 0 0 auto;
+            font-size: .85rem;
+            color: #111;
+            flex-shrink: 0;
         }
 
-        .brand-text {
-            min-width: 0;
+        .brand-name {
+            font-family: var(--font-head);
+            font-weight: 900;
+            font-size: .95rem;
+            letter-spacing: .08em;
+            line-height: 1;
         }
 
-        .brand-text h1 {
-            margin: 0;
-            font-size: 1rem;
-            line-height: 1.1;
+        .brand-sub {
+            font-size: .72rem;
+            color: var(--muted);
             letter-spacing: .12em;
         }
 
-        .brand-text span {
-            color: var(--muted);
-            font-size: .8rem;
-            display: block;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .nav-toggle {
-            display: none;
-            background: transparent;
-            border: 1px solid var(--line);
-            color: var(--text);
-            border-radius: 12px;
-            padding: .65rem .8rem;
-            cursor: pointer;
-        }
-
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: .35rem;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-
-        .nav-menu a {
-            padding: .55rem .8rem;
-            border-radius: 999px;
-            color: var(--muted);
-            font-size: .92rem;
-            transition: .25s ease;
-        }
-
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            background: var(--panel);
-            color: var(--text);
-        }
-
-        .nav-actions {
+        .nav-controls {
             display: flex;
             align-items: center;
             gap: .5rem;
-            margin-left: .35rem;
         }
 
-        .icon-btn {
+        .nav-btn {
             border: 1px solid var(--line);
             background: var(--panel);
             color: var(--text);
-            border-radius: 14px;
-            padding: .7rem .9rem;
-            cursor: pointer;
-            transition: .25s ease;
+            border-radius: 12px;
+            padding: .55rem .75rem;
+            font-size: .82rem;
+            font-weight: 700;
+            transition: .2s ease;
+            letter-spacing: .04em;
         }
 
-        .icon-btn:hover {
-            transform: translateY(-2px)
+        .nav-btn:hover {
+            transform: translateY(-1px);
+            border-color: var(--yellow);
+            color: var(--yellow);
         }
 
-        /* ===== Estructura revista ===== */
-        main {
-            padding: 0 0 3rem
+        .nav-btn.primary {
+            background: linear-gradient(135deg, var(--yellow), var(--orange));
+            color: #111;
+            border-color: transparent;
+        }
+
+        .nav-btn.primary:hover {
+            filter: brightness(1.08);
+            color: #111;
+        }
+
+        #flipbook-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 0;
+            gap: .75rem;
+        }
+
+        #flipbook {
+            box-shadow: var(--shadow);
+        }
+
+        .flip-controls {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            padding-bottom: .75rem;
+        }
+
+        .flip-btn {
+            border: 1px solid var(--line);
+            background: var(--panel-2);
+            color: var(--text);
+            border-radius: 50%;
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            font-size: 1.1rem;
+            font-weight: 900;
+            transition: .2s ease;
+        }
+
+        .flip-btn:hover {
+            border-color: var(--yellow);
+            color: var(--yellow);
+            transform: scale(1.06);
+        }
+
+        .flip-page-info {
+            font-size: .82rem;
+            color: var(--muted);
+            min-width: 90px;
+            text-align: center;
+            letter-spacing: .06em;
         }
 
         .page {
-            position: relative;
-            max-width: var(--max);
-            margin: 1.4rem auto;
-            background: linear-gradient(180deg, rgba(255, 255, 255, .02), rgba(255, 255, 255, .01)), var(--bg-soft);
-            border: 1px solid var(--line);
-            border-radius: 30px;
-            box-shadow: var(--shadow);
+            background: var(--panel);
             overflow: hidden;
-            min-height: 88vh;
+            position: relative;
+            user-select: none;
         }
 
-        body.light .page {
-            background: linear-gradient(180deg, rgba(255, 255, 255, .95), rgba(255, 255, 255, .96));
-        }
-
-        .page::before {
-            content: "";
+        .pg-num {
             position: absolute;
-            inset: 0;
+            right: 14px;
+            bottom: 10px;
+            font-weight: 900;
+            font-size: .78rem;
+            color: rgba(255, 255, 255, .18);
+            letter-spacing: .25em;
+            z-index: 2;
             pointer-events: none;
-            background:
-                linear-gradient(90deg, transparent 49.7%, rgba(255, 255, 255, .04) 50%, transparent 50.3%),
-                linear-gradient(180deg, transparent 0, transparent 94%, rgba(255, 255, 255, .02) 100%);
-            opacity: .3;
         }
 
-        .page-inner {
-            padding: clamp(1.2rem, 2vw, 2rem)
-        }
-
-        .section-kicker {
+        .pg-label {
+            position: absolute;
+            left: 14px;
+            bottom: 10px;
+            font-size: .68rem;
+            color: rgba(255, 255, 255, .18);
             text-transform: uppercase;
             letter-spacing: .18em;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .pc {
+            padding: 1.1rem 1.3rem 1.7rem;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: .55rem;
+        }
+
+        .kicker {
+            text-transform: uppercase;
+            letter-spacing: .2em;
             color: var(--yellow);
             font-weight: 800;
-            font-size: .78rem;
-            margin: 0 0 .6rem 0;
+            font-size: .65rem;
         }
 
-        .section-title {
-            font-size: clamp(2rem, 4vw, 4.25rem);
-            line-height: 1;
-            margin: .1rem 0 1rem;
-            letter-spacing: -.04em;
-        }
-
-        .section-subtitle {
-            color: var(--muted);
-            font-size: 1.05rem;
-            max-width: 70ch;
-            margin: 0 0 1.3rem;
-        }
-
-        .page-num {
-            position: absolute;
-            right: 1rem;
-            bottom: .8rem;
+        .ttl {
+            font-family: var(--font-head);
             font-weight: 900;
-            font-size: 1rem;
+            letter-spacing: -.04em;
+            line-height: .93;
+            font-size: clamp(1.5rem, 4vw, 3.2rem);
+        }
+
+        .ttl-sm {
+            font-family: var(--font-head);
+            font-weight: 900;
+            letter-spacing: -.03em;
+            line-height: 1;
+            font-size: clamp(1rem, 2.2vw, 1.6rem);
+        }
+
+        .sub {
             color: var(--muted);
-            letter-spacing: .2em;
-            opacity: .9;
-            z-index: 4;
+            font-size: .78rem;
+            line-height: 1.5;
+            max-width: 72ch;
         }
 
-        .page-label {
-            position: absolute;
-            left: 1rem;
-            bottom: .8rem;
-            color: var(--muted);
-            font-size: .82rem;
-            text-transform: uppercase;
-            letter-spacing: .18em;
-            z-index: 4;
-        }
-
-        /* ===== Portada ===== */
-        .hero {
-            min-height: 100vh;
+        .g2 {
             display: grid;
-            align-items: end;
-            background:
-                linear-gradient(180deg, rgba(3, 8, 14, .28), rgba(3, 8, 14, .92)),
-                url("https://source.unsplash.com/featured/1800x1200/?sport,training,track&sig=1") center/cover no-repeat;
+            grid-template-columns: 1fr 1fr;
+            gap: .65rem;
         }
 
-        .hero-grid {
+        .g3 {
             display: grid;
-            grid-template-columns: 1.15fr .85fr;
-            gap: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: .55rem;
+        }
+
+        .g4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: .5rem;
+        }
+
+        .g2x3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: .55rem;
+        }
+
+        .g-hero {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 1rem;
             align-items: end;
-            min-height: 100vh;
+            height: 100%;
         }
 
         .hero-copy {
-            padding: clamp(1.4rem, 3vw, 2.6rem);
             align-self: end;
+            padding-bottom: .8rem;
+        }
+
+        .hero-page {
+            background: linear-gradient(165deg, rgba(3, 8, 14, .1) 0%, rgba(3, 8, 14, .75) 55%, rgba(3, 8, 14, .97) 100%), url('https://images.unsplash.com/photo-1517649763962-0c623066013b?w=1400&q=80') center/cover no-repeat;
         }
 
         .eyebrow {
             display: inline-flex;
-            gap: .6rem;
             align-items: center;
-            padding: .45rem .85rem;
+            gap: .5rem;
+            padding: .3rem .75rem;
             border: 1px solid rgba(255, 255, 255, .2);
             border-radius: 999px;
-            background: rgba(255, 255, 255, .06);
-            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, .07);
             color: #ffe7a0;
             font-weight: 700;
-            letter-spacing: .08em;
+            font-size: .68rem;
+            letter-spacing: .1em;
             text-transform: uppercase;
-            font-size: .76rem;
+            margin-bottom: .5rem;
         }
 
-        .hero h2 {
-            font-size: clamp(2.7rem, 7vw, 6rem);
-            line-height: .92;
-            margin: 0;
+        .hero-ttl {
+            font-family: var(--font-head);
+            font-weight: 900;
+            font-size: clamp(2.2rem, 6.5vw, 5rem);
+            line-height: .88;
             letter-spacing: -.06em;
-            max-width: 10ch;
+            margin-bottom: .55rem;
         }
 
-        .hero h2 span {
-            color: var(--yellow)
+        .hero-ttl span {
+            color: var(--yellow);
         }
 
-        .hero p {
-            max-width: 58ch;
-            color: #d9e3ef;
-            font-size: 1.08rem;
+        .hero-p {
+            color: #cdd9e8;
+            font-size: .83rem;
+            max-width: 44ch;
+            line-height: 1.5;
+            margin-bottom: .75rem;
         }
 
         .hero-quote {
-            margin: 1.4rem 0 0;
-            padding: 1rem 1.1rem;
-            border-left: 4px solid var(--yellow);
+            border-left: 3px solid var(--yellow);
+            padding: .5rem .8rem;
             background: rgba(255, 255, 255, .06);
-            max-width: 58ch;
-            color: #fff7da;
-            font-size: 1.06rem;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: .8rem;
-            flex-wrap: wrap;
-            margin-top: 1.4rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: .55rem;
-            padding: .95rem 1.2rem;
-            border-radius: 999px;
-            font-weight: 800;
-            border: 1px solid transparent;
-            transition: .25s ease;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--yellow), var(--orange));
-            color: #101418;
-            box-shadow: 0 15px 30px rgba(255, 138, 61, .22);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, .08);
-            color: var(--text);
-            border-color: rgba(255, 255, 255, .16);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px)
+            font-size: .78rem;
+            color: #ffe7a0;
+            max-width: 46ch;
+            margin-bottom: .85rem;
+            border-radius: 0 10px 10px 0;
         }
 
         .cover-meta {
             align-self: end;
-            padding: clamp(1rem, 2vw, 2rem);
-            margin: clamp(1rem, 2vw, 2rem);
-            background: rgba(6, 11, 17, .68);
-            border: 1px solid rgba(255, 255, 255, .12);
-            border-radius: 24px;
-            backdrop-filter: blur(8px);
+            background: rgba(6, 11, 17, .75);
+            border: 1px solid rgba(255, 255, 255, .14);
+            border-radius: 18px;
+            padding: .85rem;
+            backdrop-filter: blur(10px);
+            margin-bottom: .8rem;
         }
 
         .meta-title {
-            margin: 0 0 .9rem;
-            font-size: .95rem;
+            font-size: .66rem;
             color: #ffe7a0;
             text-transform: uppercase;
             letter-spacing: .16em;
+            font-weight: 800;
+            margin-bottom: .55rem;
         }
 
-        .meta-list {
-            display: grid;
-            gap: .7rem;
-            color: #eaf2fb;
-            font-size: 1rem;
+        .meta-row {
+            font-size: .76rem;
+            line-height: 1.75;
+            color: #d9e9f7;
         }
 
         .editable {
-            padding: .1rem .35rem;
-            border-radius: 8px;
+            padding: .05rem .3rem;
+            border-radius: 6px;
             outline: none;
-            background: rgba(255, 255, 255, .07);
-            border: 1px dashed rgba(255, 255, 255, .14);
+            background: rgba(255, 255, 255, .08);
+            border: 1px dashed rgba(255, 255, 255, .18);
             display: inline-block;
-            min-width: 6ch;
+            min-width: 5ch;
+            font-size: .76rem;
         }
 
         .editable:focus {
             border-color: var(--yellow);
-            box-shadow: 0 0 0 3px rgba(255, 210, 63, .18);
-        }
-
-        /* ===== Bloques generales ===== */
-        .two-col {
-            display: grid;
-            grid-template-columns: 1.1fr .9fr;
-            gap: 1.4rem;
-            align-items: start;
-        }
-
-        .three-col {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-
-        .grid-4 {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-        }
-
-        .columns-2 {
-            columns: 2 320px;
-            column-gap: 2rem;
-        }
-
-        .columns-2 p,
-        .columns-2 blockquote {
-            break-inside: avoid
-        }
-
-        .card {
-            background: linear-gradient(180deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, .01)), var(--panel);
-            border: 1px solid var(--line);
-            border-radius: 22px;
-            padding: 1rem;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-
-        .card h3,
-        .card h4 {
-            margin: .2rem 0 .5rem
-        }
-
-        .muted {
-            color: var(--muted)
-        }
-
-        .lead {
-            font-size: 1.05rem
-        }
-
-        .badge-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .55rem;
-            margin: .7rem 0 1rem;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: .4rem;
-            padding: .45rem .75rem;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, .06);
-            border: 1px solid var(--line);
-            color: var(--muted);
-            font-size: .85rem;
-            font-weight: 700;
-        }
-
-        .callout {
-            padding: 1rem 1.1rem;
-            border-left: 5px solid var(--orange);
-            border-radius: 16px;
-            background: linear-gradient(90deg, rgba(255, 138, 61, .13), rgba(255, 255, 255, .02));
-            margin: 1rem 0;
-        }
-
-        .quote-box {
-            background: linear-gradient(135deg, rgba(255, 210, 63, .14), rgba(255, 77, 90, .08));
-            border: 1px solid var(--line);
-            border-radius: 24px;
-            padding: 1.4rem;
-            font-size: 1.2rem;
-            line-height: 1.5;
-            color: #fff5cb;
-        }
-
-        body.light .quote-box {
-            color: #6c4d00
-        }
-
-        .quote-box strong {
-            color: inherit
-        }
-
-        .figure {
-            overflow: hidden;
-            border-radius: 20px;
-            border: 1px solid var(--line);
-            background: var(--panel);
-        }
-
-        .figure img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            aspect-ratio: 16/10;
-        }
-
-        figcaption {
-            font-size: .86rem;
-            color: var(--muted);
-            padding: .75rem .9rem;
-            background: rgba(255, 255, 255, .02);
-        }
-
-        .cite {
-            font-size: .82em;
-            color: var(--yellow);
-            white-space: nowrap;
-        }
-
-        .dropcap:first-letter {
-            float: left;
-            font-size: 3.3rem;
-            line-height: .9;
-            padding-right: .45rem;
-            color: var(--yellow);
-            font-weight: 900;
-        }
-
-        /* ===== Sumario ===== */
-        .toc {
-            display: grid;
-            gap: .8rem;
         }
 
         .toc-item {
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            gap: 1rem;
+            display: flex;
             align-items: center;
-            padding: 1rem 1.1rem;
-            border-radius: 18px;
-            background: var(--panel);
+            gap: .6rem;
+            padding: .45rem .7rem;
+            border-radius: 9px;
+            background: rgba(255, 255, 255, .04);
             border: 1px solid var(--line);
+            font-size: .75rem;
         }
 
-        .toc-no {
-            font-size: 1.2rem;
+        .toc-n {
+            font-size: .9rem;
             font-weight: 900;
             color: var(--yellow);
-            min-width: 2.5rem;
+            min-width: 1.75rem;
         }
 
-        .toc-line {
+        .toc-dots {
+            flex: 1;
             height: 1px;
-            background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, .15) 6px, transparent 6px, transparent 12px);
+            background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .12) 4px, transparent 4px, transparent 8px);
         }
 
-        .toc-page {
-            font-weight: 900;
-            letter-spacing: .15em;
+        .toc-pg {
+            font-weight: 700;
             color: var(--muted);
+            font-size: .72rem;
+            letter-spacing: .1em;
         }
 
-        /* ===== Etapas ===== */
-        .timeline {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 1rem;
-            margin-top: 1rem;
+        .fig {
+            border-radius: 11px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            background: var(--panel-2);
+            flex-shrink: 0;
+        }
+
+        .fig img {
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .fig figcaption {
+            font-size: .64rem;
+            color: var(--muted);
+            padding: .3rem .55rem;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, rgba(255, 210, 63, .12), rgba(255, 77, 90, .07));
+            border: 1px solid var(--line);
+            border-radius: 11px;
+            padding: .65rem .85rem;
+            font-size: .8rem;
+            color: #fff5cb;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .callout {
+            border-left: 4px solid var(--orange);
+            border-radius: 0 9px 9px 0;
+            background: linear-gradient(90deg, rgba(255, 138, 61, .12), rgba(255, 255, 255, .02));
+            padding: .5rem .75rem;
+            font-size: .74rem;
+            color: var(--text);
+            line-height: 1.45;
+        }
+
+        .alert-box {
+            background: linear-gradient(135deg, rgba(255, 77, 90, .1), rgba(255, 138, 61, .06));
+            border: 1px solid rgba(255, 77, 90, .2);
+            border-radius: 9px;
+            padding: .5rem .7rem;
+            font-size: .72rem;
+            line-height: 1.45;
         }
 
         .stage-card {
             position: relative;
-            padding: 1rem;
-            border-radius: 22px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, .01)), var(--panel);
+            padding: .55rem .7rem .55rem .95rem;
+            border-radius: 11px;
+            background: rgba(255, 255, 255, .04);
             border: 1px solid var(--line);
+            overflow: hidden;
         }
 
         .stage-card::before {
-            content: "";
+            content: '';
             position: absolute;
-            top: 1rem;
-            left: 1rem;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--yellow), var(--orange));
-            box-shadow: 0 0 0 6px rgba(255, 210, 63, .1);
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--yellow), var(--orange));
         }
 
         .stage-card h3 {
-            margin: 1.4rem 0 .2rem
+            font-size: .8rem;
+            font-weight: 800;
+            margin-bottom: .08rem;
+        }
+
+        .stage-card .age {
+            font-size: .66rem;
+            color: var(--orange);
+            font-weight: 700;
+            margin-bottom: .22rem;
         }
 
         .mini-list {
             list-style: none;
             padding: 0;
-            margin: .8rem 0 0;
-            display: grid;
-            gap: .55rem;
+            display: flex;
+            flex-direction: column;
+            gap: .12rem;
         }
 
         .mini-list li {
-            padding-left: 1rem;
-            position: relative;
+            font-size: .7rem;
             color: var(--muted);
-            font-size: .95rem;
+            padding-left: .8rem;
+            position: relative;
+            line-height: 1.3;
         }
 
         .mini-list li::before {
-            content: "•";
+            content: '•';
             color: var(--yellow);
             position: absolute;
             left: 0;
         }
 
-        /* ===== Habilidades ===== */
-        .motriz-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+        .motriz-card {
+            padding: .6rem;
+            border-radius: 11px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid var(--line);
         }
 
-        .icon {
-            width: 62px;
-            height: 62px;
-            border-radius: 18px;
+        .motriz-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
             display: grid;
             place-items: center;
-            background: linear-gradient(135deg, rgba(255, 210, 63, .18), rgba(255, 77, 90, .12));
+            background: linear-gradient(135deg, rgba(255, 210, 63, .18), rgba(255, 77, 90, .1));
             border: 1px solid var(--line);
-            font-size: 1.6rem;
-            margin-bottom: .7rem;
+            font-size: 1rem;
+            margin-bottom: .35rem;
         }
 
-        /* ===== Coordinativas ===== */
-        .coord-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
+        .motriz-card h3 {
+            font-size: .82rem;
+            font-weight: 800;
+            margin-bottom: .18rem;
         }
 
-        .coord-card h4 {
-            font-size: 1.08rem
+        .motriz-card p {
+            font-size: .7rem;
+            color: var(--muted);
+            line-height: 1.32;
+        }
+
+        .coord-card {
+            padding: .55rem;
+            border-radius: 11px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid var(--line);
         }
 
         .chip {
             display: inline-block;
-            margin-top: .7rem;
-            padding: .35rem .65rem;
+            margin-top: .28rem;
+            padding: .16rem .44rem;
             border-radius: 999px;
             background: rgba(255, 255, 255, .05);
             border: 1px solid var(--line);
             color: var(--yellow);
-            font-size: .82rem;
+            font-size: .63rem;
             font-weight: 800;
         }
 
-        /* ===== Capacidades físicas ===== */
-        .physical-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+        .phys-card {
+            padding: .6rem;
+            border-radius: 11px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid var(--line);
+            display: flex;
+            flex-direction: column;
+            gap: .25rem;
         }
 
-        .physical-card .top {
+        .phys-header {
             display: flex;
             align-items: center;
-            gap: .8rem;
-            margin-bottom: .6rem;
+            gap: .45rem;
+            margin-bottom: .15rem;
         }
 
         .ring {
-            width: 58px;
-            height: 58px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             border: 2px solid rgba(255, 210, 63, .3);
             display: grid;
             place-items: center;
-            color: var(--yellow);
-            font-size: 1.4rem;
+            font-size: .95rem;
             background: rgba(255, 255, 255, .03);
+            flex-shrink: 0;
         }
 
-        /* ===== Tendencias ===== */
-        .trend-intro {
-            display: grid;
-            grid-template-columns: 1fr .9fr;
-            gap: 1rem;
-            align-items: start;
+        .phys-card h3 {
+            font-size: .82rem;
+            font-weight: 800;
         }
 
-        .alert {
-            padding: 1rem 1.1rem;
-            border-radius: 18px;
-            background: linear-gradient(135deg, rgba(255, 77, 90, .12), rgba(255, 138, 61, .08));
-            border: 1px solid rgba(255, 77, 90, .22);
-            color: var(--text);
-        }
-
-        .category-block {
-            margin-top: 1.4rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--line);
-        }
-
-        .category-block h3 {
-            margin: 0 0 .85rem;
-            font-size: 1.45rem;
-            display: flex;
-            align-items: center;
-            gap: .65rem;
-        }
-
-        .trend-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+        .phys-card p {
+            font-size: .7rem;
+            color: var(--muted);
+            line-height: 1.32;
         }
 
         .trend-card {
             border: 1px solid var(--line);
-            border-radius: 22px;
+            border-radius: 11px;
             overflow: hidden;
-            background: var(--panel);
+            background: rgba(255, 255, 255, .03);
             display: flex;
             flex-direction: column;
-            min-height: 100%;
+            height: 100%;
         }
 
         .trend-card figure {
-            margin: 0
+            margin: 0;
+            flex-shrink: 0;
         }
 
         .trend-card img {
             width: 100%;
-            aspect-ratio: 16/9;
+            height: 58px;
             object-fit: cover;
+            display: block;
         }
 
         .trend-body {
-            padding: 1rem;
+            padding: .35rem .5rem .4rem;
+            flex: 1;
             display: flex;
             flex-direction: column;
-            gap: .6rem;
-            flex: 1;
+            gap: .12rem;
+            overflow: hidden;
+        }
+
+        .g4x4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 1fr;
+            gap: .38rem;
         }
 
         .trend-head {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: .7rem;
+            gap: .3rem;
         }
 
         .trend-head h4 {
-            margin: 0;
-            font-size: 1.18rem;
+            font-size: .76rem;
+            font-weight: 800;
             line-height: 1.2;
+            margin: 0;
         }
 
         .intensity {
-            padding: .3rem .6rem;
+            padding: .12rem .38rem;
             border-radius: 999px;
-            font-size: .78rem;
+            font-size: .6rem;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: .06em;
+            letter-spacing: .04em;
             white-space: nowrap;
             border: 1px solid transparent;
+            flex-shrink: 0;
         }
 
         .low {
-            background: rgba(130, 255, 170, .12);
-            color: #98ffc0;
-            border-color: rgba(130, 255, 170, .18)
+            background: rgba(61, 255, 192, .1);
+            color: #7affd8;
+            border-color: rgba(61, 255, 192, .2);
         }
 
         .mid {
-            background: rgba(255, 210, 63, .12);
+            background: rgba(255, 210, 63, .1);
             color: #ffe08f;
-            border-color: rgba(255, 210, 63, .2)
+            border-color: rgba(255, 210, 63, .2);
         }
 
         .high {
-            background: rgba(255, 77, 90, .14);
+            background: rgba(255, 77, 90, .12);
             color: #ffadb5;
-            border-color: rgba(255, 77, 90, .22)
+            border-color: rgba(255, 77, 90, .22);
         }
 
-        body.light .low {
-            color: #13653a
-        }
-
-        body.light .mid {
-            color: #8b5d00
-        }
-
-        body.light .high {
-            color: #8d1220
-        }
-
-        .meta {
+        .trend-meta {
             display: flex;
             flex-wrap: wrap;
-            gap: .45rem;
+            gap: .22rem;
         }
 
-        .meta span {
-            font-size: .8rem;
+        .trend-meta span {
+            font-size: .62rem;
             font-weight: 700;
             color: var(--muted);
             border: 1px solid var(--line);
             background: rgba(255, 255, 255, .03);
-            padding: .3rem .55rem;
+            padding: .12rem .35rem;
             border-radius: 999px;
         }
 
-        .trend-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: grid;
-            gap: .45rem;
-            font-size: .94rem;
-        }
-
-        .trend-list li {
+        .trend-p {
+            font-size: .65rem;
             color: var(--muted);
+            line-height: 1.32;
         }
 
-        .trend-list strong {
-            color: var(--text)
-        }
-
-        /* ===== Seguridad ===== */
         .check-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
+            gap: .45rem;
         }
 
         .check-card {
-            position: relative;
-            padding: 1rem;
-            border-radius: 20px;
-            background: var(--panel);
+            padding: .55rem;
+            border-radius: 11px;
+            background: rgba(255, 255, 255, .04);
             border: 1px solid var(--line);
         }
 
         .check-mark {
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
+            width: 30px;
+            height: 30px;
+            border-radius: 7px;
             display: grid;
             place-items: center;
             background: linear-gradient(135deg, rgba(255, 210, 63, .18), rgba(255, 138, 61, .12));
             color: var(--yellow);
-            font-size: 1.3rem;
-            margin-bottom: .7rem;
+            font-size: .85rem;
+            margin-bottom: .35rem;
+            font-weight: 900;
         }
 
-        /* ===== Conclusiones y glosario ===== */
-        .conclusion-list {
-            display: grid;
-            gap: 1rem;
+        .check-card h3 {
+            font-size: .76rem;
+            font-weight: 800;
+            margin-bottom: .12rem;
         }
 
-        .conclusion-item {
-            padding: 1rem 1.1rem;
-            border-radius: 18px;
-            border: 1px solid var(--line);
-            background: var(--panel);
-        }
-
-        .glossary {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-
-        .term {
-            padding: 1rem;
-            border-radius: 18px;
-            background: var(--panel);
-            border: 1px solid var(--line);
-        }
-
-        .term h4 {
-            margin: .1rem 0 .45rem
-        }
-
-        /* ===== Bibliografía ===== */
-        .refs {
-            margin: 0;
-            padding-left: 1.2rem;
-            display: grid;
-            gap: .85rem;
-        }
-
-        .refs li {
-            background: var(--panel);
-            border: 1px solid var(--line);
-            padding: 1rem;
-            border-radius: 18px;
-        }
-
-        /* ===== Footer general ===== */
-        footer.site-footer {
-            max-width: var(--max);
-            margin: 0 auto 2rem;
+        .check-card p {
+            font-size: .66rem;
             color: var(--muted);
-            padding: 0 1rem;
+            line-height: 1.32;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--line);
+            flex-shrink: 0;
+        }
+
+        .col2-text {
+            columns: 2;
+            column-gap: .9rem;
+            font-size: .74rem;
+            line-height: 1.48;
+            color: var(--muted);
+        }
+
+        .col2-text p {
+            break-inside: avoid;
+            margin-bottom: .38rem;
+        }
+
+        .dropcap::first-letter {
+            float: left;
+            font-size: 2.3rem;
+            line-height: .88;
+            padding-right: .28rem;
+            color: var(--yellow);
+            font-weight: 900;
+            font-family: var(--font-head);
+        }
+
+        .cite {
+            font-size: .7em;
+            color: var(--yellow);
+        }
+
+        .stat-badge {
             display: flex;
-            justify-content: space-between;
-            gap: 1rem;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: .38rem;
+            padding: .4rem .65rem;
+            border-radius: 9px;
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid var(--line);
         }
 
-        /* ===== Animaciones ===== */
-        .reveal {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity .7s ease, transform .7s ease;
+        .stat-n {
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: var(--yellow);
+            line-height: 1;
         }
 
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .stat-label {
+            font-size: .64rem;
+            color: var(--muted);
+            line-height: 1.2;
         }
 
-        /* ===== Volver arriba ===== */
         .back-top {
             position: fixed;
             right: 1rem;
-            bottom: 1rem;
-            width: 52px;
-            height: 52px;
+            bottom: 4rem;
+            width: 44px;
+            height: 44px;
             border: none;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--yellow), var(--orange));
             color: #111;
             font-weight: 900;
+            font-size: 1rem;
             box-shadow: var(--shadow);
-            cursor: pointer;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(20px);
+            transform: translateY(12px);
             transition: .3s ease;
-            z-index: 1400;
+            z-index: 1000;
         }
 
         .back-top.show {
@@ -1010,1435 +847,917 @@
             transform: translateY(0);
         }
 
-        /* ===== Responsive ===== */
-        @media (max-width:1100px) {
-
-            .hero-grid,
-            .two-col,
-            .trend-intro,
-            .three-col,
-            .grid-2,
-            .grid-4,
-            .timeline,
-            .motriz-grid,
-            .coord-grid,
-            .physical-grid,
-            .trend-grid,
-            .check-grid,
-            .glossary {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width:860px) {
-            .nav-toggle {
-                display: block
-            }
-
-            .nav-menu {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--bg-soft);
-                padding: 1rem;
-                border-bottom: 1px solid var(--line);
-                display: none;
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .nav-menu.open {
-                display: flex
-            }
-
-            .nav-menu a {
-                border-radius: 14px
-            }
-
-            .nav-actions {
-                margin-left: 0;
-                justify-content: flex-start
-            }
-
-            .hero-grid,
-            .timeline,
-            .motriz-grid,
-            .coord-grid,
-            .physical-grid,
-            .trend-grid,
-            .check-grid,
-            .glossary,
-            .three-col,
-            .grid-2,
-            .grid-4,
-            .two-col,
-            .trend-intro {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h2 {
-                max-width: 12ch
-            }
-
-            .columns-2 {
-                columns: 1
-            }
-        }
-
-        @media (max-width:560px) {
-            .page {
-                border-radius: 20px;
-                margin: .8rem
-            }
-
-            .page-inner {
-                padding: 1rem
-            }
-
-            .section-title {
-                font-size: 2rem
-            }
-
-            .hero-copy,
-            .cover-meta {
-                padding: 1rem
-            }
-
-            .hero-quote {
-                font-size: .98rem
-            }
-
-            .btn {
-                width: 100%
-            }
-
-            .brand-text span {
-                display: none
-            }
-
-            .page-num,
-            .page-label {
-                font-size: .75rem
-            }
-        }
-
-        /* ===== Impresión ===== */
         @media print {
-            :root {
-                --bg: #fff;
-                --bg-soft: #fff;
-                --panel: #fff;
-                --panel-2: #fff;
-                --text: #111;
-                --muted: #444;
-                --line: rgba(0, 0, 0, .12);
-                --shadow: none;
-            }
-
             body {
                 background: #fff !important;
                 color: #111 !important;
+                overflow: visible;
             }
 
-            .site-header,
-            .progress-wrap,
+            .site-nav,
             .back-top,
-            .btn-secondary,
-            .nav-actions .icon-btn:not(.print-keep) {
+            .flip-controls {
                 display: none !important;
             }
 
-            .page {
-                margin: 0 0 10mm 0;
+            #flipbook-wrap {
+                padding: 0;
+                overflow: visible;
                 min-height: auto;
-                border: 1px solid #ddd;
+            }
+
+            #flipbook {
                 box-shadow: none;
+            }
+
+            .page {
                 break-before: page;
                 page-break-before: always;
-                border-radius: 0;
             }
 
             #portada.page {
                 break-before: auto;
-                page-break-before: auto
+                page-break-before: auto;
             }
-
-            .hero {
-                min-height: 280mm;
-            }
-
-            .page::before {
-                display: none
-            }
-
-            a {
-                text-decoration: none;
-                color: inherit
-            }
-
-            .trend-card,
-            .card,
-            .check-card,
-            .term,
-            .conclusion-item,
-            .stage-card,
-            .toc-item,
-            .refs li {
-                break-inside: avoid;
-                page-break-inside: avoid;
-            }
-
-            .editable {
-                border: 1px dashed #999;
-                background: transparent;
-            }
-
-            .btn {
-                border: 1px solid #666;
-                box-shadow: none;
-            }
-
-            .cite {
-                color: #333
-            }
-        }
-    
-        #flipbook {
-            margin: 0 auto;
-            display: block;
-            box-shadow: var(--shadow);
-            background-color: var(--panel);
-        }
-        .page {
-            background-color: var(--panel);
-            overflow: hidden; /* Prevent content spilling */
-            position: relative;
-        }
-        body.light .page {
-            background-color: var(--panel);
-        }
-        .page-content {
-            padding: 2rem;
-            height: 100%;
-            overflow: hidden; /* Allow scrolling inside the page if content is too long */
-            box-sizing: border-box;
-        }
-        /* Custom scrollbar for pages */
-        .page-content::-webkit-scrollbar {
-            width: 6px;
-        }
-        .page-content::-webkit-scrollbar-track {
-            background: rgba(0,0,0,0.05);
-        }
-        .page-content::-webkit-scrollbar-thumb {
-            background: var(--yellow);
-            border-radius: 10px;
-        }
-        /* Hide old progress bar */
-        .progress-wrap { display: none !important; }
-        
-        main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 2rem 0;
-            overflow: hidden;
         }
     </style>
-<script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script></head>
+</head>
+
 <body>
-<div aria-hidden="true" class="progress-wrap">
-<div class="progress-bar" id="progressBar"></div>
-</div>
-<!-- Navegación superior -->
-<!-- Header removed -->
-<main><div id="flipbook"><section class="page hero" id="portada">
-<div class="page-content">
-<div class="hero-copy">
-<div class="eyebrow">Revista editorial • Educación Física</div>
-<h2>MOVIMIENTO <span>EN ACCIÓN</span></h2>
-<p class="lead">Desarrollo humano, capacidades físicas y tendencias deportivas para una vida activa.
-                    </p>
-<p>Una revista digital concebida como pieza editorial moderna: información académica, lenguaje
-                        claro, fotografías integradas y diseño deportivo pensado para estudiantes, docentes y lectores
-                        interesados en actividad física, salud y bienestar.</p>
-<blockquote class="hero-quote">
-                        “El cuerpo aprende, se adapta y se expresa a través del movimiento.”
-                    </blockquote>
-<div class="hero-actions">
-<a class="btn btn-primary" href="#sumario">Explorar revista</a>
-<a class="btn btn-secondary" href="#editorial">Leer presentación</a>
-</div>
-</div>
-<aside class="cover-meta">
-<h3 class="meta-title">Datos editables de portada</h3>
-<div class="meta-list">
-<div><strong>Elaborado por:</strong> <span class="editable" contenteditable="true">[Nombre del
-                                estudiante]</span></div>
-<div><strong>Institución:</strong> <span class="editable" contenteditable="true">[Nombre de la
-                                institución]</span></div>
-<div><strong>Asignatura:</strong> Educación Física</div>
-<div><strong>Docente:</strong> <span class="editable" contenteditable="true">[Nombre del
-                                docente]</span></div>
-<div><strong>Ciudad y fecha:</strong> <span class="editable" contenteditable="true">Cali,
-                                Colombia — [Fecha]</span></div>
-</div>
-</aside>
-</div>
-<div class="page-label">Portada</div>
-<div class="page-num">01</div>
-</section><section class="page" id="editorial">
-<div class="page-content">
-<p class="section-kicker">Editorial / Presentación</p>
-<h2 class="section-title">Moverse es aprender</h2>
-<div class="two-col">
-<article class="card columns-2">
-<p class="dropcap">La educación física no es solo una asignatura del horario escolar: es un
-                            espacio donde el cuerpo piensa, experimenta, se comunica y construye hábitos para toda la
-                            vida. La UNESCO presenta la Educación Física de Calidad como una experiencia de aprendizaje
-                            planificada, progresiva e inclusiva que ayuda a niñas, niños y jóvenes a desarrollar
-                            habilidades psicomotrices, comprensión cognitiva y aptitudes sociales y emocionales para
-                            llevar una vida físicamente activa<span class="cite">[page:1]</span>.</p>
-<p>Mirar el movimiento humano desde esta perspectiva permite entender que cada etapa del
-                            desarrollo tiene necesidades distintas. La escuela, la familia y los entornos de práctica
-                            pueden convertirse en escenarios donde se fortalecen la convivencia, el autocuidado, la
-                            disciplina, la participación y el disfrute del cuerpo en acción<span class="cite">[page:1]</span>.</p>
-<p>La Organización Mundial de la Salud recuerda que toda actividad física cuenta y que reducir
-                            los comportamientos sedentarios también forma parte del cuidado integral de la salud<span class="cite">[web:4][web:15]</span>. En esa misma línea, las directrices de 2020
-                            recomiendan para niñas, niños y adolescentes un promedio de al menos 60 minutos diarios de
-                            actividad física moderada a vigorosa a lo largo de la semana<span class="cite">[web:13]</span>.</p>
-<p>Para las personas adultas, la OMS recomienda acumular entre 150 y 300 minutos semanales de
-                            actividad aeróbica moderada, o entre 75 y 150 minutos de actividad vigorosa, además de
-                            integrar trabajo muscular con regularidad<span class="cite">[web:11][web:13]</span>. En
-                            personas mayores, también se enfatiza el trabajo multicomponente, especialmente el
-                            equilibrio y la fuerza, para mejorar la función y prevenir caídas<span class="cite">[web:3][web:8]</span>.</p>
-</article>
-<div>
-<figure class="figure">
-<img alt="Estudiantes realizando actividad física en grupo" loading="lazy" src="https://source.unsplash.com/featured/1200x900/?school,sports,students&amp;sig=2"/>
-<figcaption>El movimiento en la escuela es aprendizaje corporal, social y emocional.
-                            </figcaption>
-</figure>
-<div class="quote-box" style="margin-top:1rem;">
-                            “El movimiento no solo fortalece el cuerpo: también educa la mente, las emociones y la
-                            convivencia.”
+
+    <div id="flipbook-wrap">
+        <div id="flipbook">
+
+            <!-- PAG 01: PORTADA -->
+            <section class="page hero-page" id="portada">
+                <div class="pc" style="padding:0;height:100%;">
+                    <div class="g-hero" style="padding:1.1rem 1.3rem 1.5rem;">
+                        <div class="hero-copy">
+                            <div class="eyebrow">&#9889; Educaci&oacute;n F&iacute;sica &middot; Revista digital</div>
+                            <h1 class="hero-ttl">MOVIMIENTO<br><span>EN ACCI&Oacute;N</span></h1>
+                            <p class="hero-p">Desarrollo humano, capacidades f&iacute;sicas y tendencias deportivas para
+                                una vida activa.</p>
+                            <blockquote class="hero-quote">&ldquo;El cuerpo aprende, se adapta y se expresa a
+                                trav&eacute;s del movimiento.&rdquo;</blockquote>
                         </div>
-<div class="callout">
-<p style="margin:0;">El concepto de alfabetización física describe la motivación, la
-                                confianza, la competencia física, el conocimiento y la comprensión necesarios para
-                                mantenerse activo a lo largo de la vida<span class="cite">[web:18]</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="page-label">Editorial</div>
-<div class="page-num">04</div>
-</section><section class="page" id="etapas">
-<div class="page-content">
-<p class="section-kicker">Etapas del desarrollo</p>
-<h2 class="section-title">El cuerpo cambia, el movimiento también</h2>
-<p class="section-subtitle">El desarrollo motor y físico avanza durante toda la vida. Respetar la edad,
-                    la maduración, la seguridad y los intereses de cada persona permite que la actividad física sea
-                    formativa, saludable y sostenible.</p>
-<figure class="figure" style="margin-bottom:1rem;">
-<img alt="Niños y adolescentes realizando actividad física al aire libre" loading="lazy" src="https://source.unsplash.com/featured/1600x900/?children,physical,activity&amp;sig=3"/>
-<figcaption>Las experiencias motrices tempranas favorecen exploración, coordinación y confianza
-                        corporal.</figcaption>
-</figure>
-<div class="timeline">
-<article class="stage-card">
-<h3>Primera infancia</h3>
-<p class="muted"><strong>Edad:</strong> 0 a 5 años.</p>
-<ul class="mini-list">
-<li>Se construyen control postural, equilibrio básico, marcha y exploración sensorial.</li>
-<li>Convienen juegos libres, desplazamientos, circuitos sencillos, música y movimiento.</li>
-<li>La prioridad es el entorno seguro, el acompañamiento adulto y el disfrute.</li>
-<li>Evitar cargas excesivas, instrucciones complejas y espacios con riesgo de golpes.</li>
-</ul>
-</article>
-<article class="stage-card">
-<h3>Niñez</h3>
-<p class="muted"><strong>Edad:</strong> 6 a 11 años.</p>
-<ul class="mini-list">
-<li>Mejoran coordinación, ritmo, lateralidad y control de habilidades básicas.</li>
-<li>Se recomiendan juegos, deportes adaptados, saltos, lanzamientos, carreras y retos
-                                motores.</li>
-<li>La OMS recomienda en niñez y adolescencia un promedio de al menos 60 minutos diarios de
-                                actividad moderada a vigorosa<span class="cite">[web:13]</span>.</li>
-<li>Es clave enseñar técnica, hidratación, respeto de reglas y pausas activas.</li>
-</ul>
-</article>
+                        <div class="cover-meta">
+                            <div class="meta-title">&#128203; Datos de portada</div>
+                            <div class="meta-row"><strong>Elaborado por:</strong><br><span class="editable"
+                                    contenteditable="true">Alexander Castaño</span></div>
+                            <span class="editable" contenteditable="true">Jpsue Valencia</span>
+                            <div class="meta-row" style="margin-top:.4rem;">
+                                <strong>Instituci&oacute;n:</strong><br><span class="editable"
+                                    contenteditable="true">SENA</span>
+                            </div>
+                            <div class="meta-row" style="margin-top:.3rem;"><strong>Docente:</strong><br><span
+                                    class="editable" contenteditable="true">Jackson Mosquera</span></div>
+                            <div class="meta-row" style="margin-top:.28rem;"><strong>Fecha:</strong><br><span
+                                    class="editable" contenteditable="true">Medellín, Colombia &mdash; 2026</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pg-label">Portada</div>
+                <div class="pg-num">01</div>
+            </section>
 
+            <!-- PAG 02: EDITORIAL + SUMARIO -->
+            <section class="page" id="editorial">
+                <div class="pc">
+                    <div class="g2" style="align-items:start;flex:1;">
+                        <div style="display:flex;flex-direction:column;gap:.5rem;">
+                            <p class="kicker">Editorial &middot; Presentaci&oacute;n</p>
+                            <h2 class="ttl" style="font-size:clamp(1.4rem,3.2vw,2.6rem);">Moverse es<br>aprender</h2>
+                            <figure class="fig">
+                                <img alt="Estudiantes en actividad fisica" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=75"
+                                    style="height:95px;" />
+                                <figcaption>El movimiento en la escuela es aprendizaje corporal, social y emocional.
+                                </figcaption>
+                            </figure>
+                            <div class="col2-text">
+                                <p class="dropcap">La educaci&oacute;n f&iacute;sica desarrolla habilidades
+                                    psicomotrices, comprensi&oacute;n cognitiva y aptitudes sociales <span
+                                        class="cite">[UNESCO]</span>. No es solo una asignatura: es donde el cuerpo
+                                    piensa y construye h&aacute;bitos para toda la vida.</p>
+                                <p>La OMS recomienda 60 min diarios de actividad moderada-vigorosa para ni&ntilde;os y
+                                    adolescentes, y 150&ndash;300 min semanales para adultos <span class="cite">[OMS
+                                        2020]</span>.</p>
+                            </div>
+                            <div class="quote-box" style="font-size:.76rem;">&ldquo;El movimiento educa la mente, las
+                                emociones y la convivencia.&rdquo;</div>
+                            <div class="g2" style="gap:.38rem;">
+                                <div class="stat-badge"><span class="stat-n">60&rsquo;</span><span
+                                        class="stat-label">Min. diario ni&ntilde;os y adolescentes</span></div>
+                                <div class="stat-badge"><span class="stat-n">150&rsquo;</span><span
+                                        class="stat-label">Min. semanal adultos (OMS)</span></div>
+                            </div>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:.42rem;">
+                            <p class="kicker">Contenido</p>
+                            <h3 class="ttl-sm">&Iacute;ndice de la revista</h3>
+                            <figure class="fig">
+                                <img alt="Persona corriendo en campo deportivo" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&q=70"
+                                    style="height:68px;" />
+                            </figure>
+                            <div style="display:flex;flex-direction:column;gap:.28rem;margin-top:.08rem;">
+                                <div class="toc-item"><span class="toc-n">01</span><span>Portada</span>
+                                    <div class="toc-dots"></div><span class="toc-pg">P.1</span>
+                                </div>
+                                <div class="toc-item"><span class="toc-n">02</span><span>Editorial</span>
+                                    <div class="toc-dots"></div><span class="toc-pg">P.2</span>
+                                </div>
+                                <div class="toc-item"><span class="toc-n">03</span><span>Etapas del desarrollo</span>
+                                    <div class="toc-dots"></div><span class="toc-pg">P.3</span>
+                                </div>
+                                <div class="toc-item"><span class="toc-n">04</span><span>Habilidades motrices</span>
+                                    <div class="toc-dots"></div><span class="toc-pg">P.4</span>
+                                </div>
+                                <div class="toc-item"><span class="toc-n">05</span><span>Capacidades
+                                        f&iacute;sicas</span>
+                                    <div class="toc-dots"></div><span class="toc-pg">P.5</span>
+                                </div>
+                                <div class="toc-item"><span class="toc-n">06</span><span>Tendencias deportivas</span>
+                                    <div class="toc-dots"></div><span class="toc-pg">P.6</span>
+                                </div>
+                                <div class="toc-item"><span class="toc-n">07</span><span>Editorial visual</span>
+                                    <div class="toc-dots"></div><span class="toc-pg">P.7</span>
+                                </div>
+                                <div class="toc-item"><span class="toc-n">08</span><span>Pr&aacute;ctica segura</span>
+                                    <div class="toc-dots"></div><span class="toc-pg">P.8</span>
+                                </div>
+                            </div>
+                            <div class="callout" style="margin-top:auto;font-size:.7rem;">La
+                                <strong>alfabetizaci&oacute;n f&iacute;sica</strong> es la motivaci&oacute;n, confianza
+                                y competencia para mantenerse activo toda la vida.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pg-label">Editorial</div>
+                <div class="pg-num">02</div>
+            </section>
 
+            <!-- PAG 03: ETAPAS DEL DESARROLLO -->
+            <section class="page" id="etapas">
+                <div class="pc">
+                    <div
+                        style="display:grid;grid-template-columns:1fr auto;gap:.6rem;align-items:center;flex-shrink:0;">
+                        <div>
+                            <p class="kicker">Etapas del desarrollo</p>
+                            <h2 class="ttl" style="font-size:clamp(1.3rem,2.8vw,2.2rem);">El cuerpo cambia,<br>el
+                                movimiento tambi&eacute;n</h2>
+                            <p class="sub" style="margin-top:.18rem;font-size:.72rem;">Respetar la edad y la
+                                maduraci&oacute;n hace que la actividad f&iacute;sica sea formativa y sostenible.</p>
+                        </div>
+                        <figure class="fig" style="width:125px;">
+                            <img alt="Ninos corriendo al aire libre" loading="lazy"
+                                src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&q=75"
+                                style="height:90px;" />
+                        </figure>
+                    </div>
+                    <figure class="fig" style="flex-shrink:0;">
+                        <img alt="Actividad fisica grupal" loading="lazy"
+                            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&q=75"
+                            style="height:78px;" />
+                        <figcaption>Las experiencias motrices tempranas favorecen coordinaci&oacute;n y confianza
+                            corporal.</figcaption>
+                    </figure>
+                    <div class="g2" style="flex:1;">
+                        <article class="stage-card">
+                            <h3>&#128188; Primera infancia</h3>
+                            <div class="age">0 &ndash; 5 a&ntilde;os</div>
+                            <ul class="mini-list">
+                                <li>Control postural, equilibrio y exploraci&oacute;n sensorial.</li>
+                                <li>Juegos libres, circuitos y m&uacute;sica en movimiento.</li>
+                                <li>Entorno seguro y acompa&ntilde;amiento adulto.</li>
+                            </ul>
+                        </article>
+                        <article class="stage-card">
+                            <h3>&#127752; Ni&ntilde;ez</h3>
+                            <div class="age">6 &ndash; 11 a&ntilde;os</div>
+                            <ul class="mini-list">
+                                <li>Coordinaci&oacute;n, ritmo, lateralidad y control.</li>
+                                <li>Deportes adaptados, saltos y retos motores.</li>
+                                <li>OMS: m&iacute;nimo 60 min/d&iacute;a moderada-vigorosa.</li>
+                            </ul>
+                        </article>
+                        <article class="stage-card">
+                            <h3>&#127939; Adolescencia</h3>
+                            <div class="age">12 &ndash; 17 a&ntilde;os</div>
+                            <ul class="mini-list">
+                                <li>Cambios r&aacute;pidos por maduraci&oacute;n biol&oacute;gica.</li>
+                                <li>Fuerza, resistencia, velocidad y autonom&iacute;a.</li>
+                                <li>Ejercicios vigorosos m&iacute;nimo 3 d&iacute;as/semana.</li>
+                            </ul>
+                        </article>
+                        <article class="stage-card">
+                            <h3>&#128188; Adultez</h3>
+                            <div class="age">18 &ndash; 59 a&ntilde;os</div>
+                            <ul class="mini-list">
+                                <li>Salud cardiovascular, fuerza y manejo del estr&eacute;s.</li>
+                                <li>Caminatas, ciclismo, fuerza y deportes recreativos.</li>
+                                <li>OMS: 150&ndash;300 min/semana moderada.</li>
+                            </ul>
+                        </article>
+                    </div>
+                    <div style="display:grid;grid-template-columns:1fr auto;gap:.45rem;flex-shrink:0;">
+                        <article class="stage-card">
+                            <h3>&#129489; Adulto mayor <span
+                                    style="font-weight:400;font-size:.68rem;color:var(--muted);">60 a&ntilde;os o
+                                    m&aacute;s</span></h3>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:.28rem;">
+                                <ul class="mini-list">
+                                    <li>Autonom&iacute;a, equilibrio y movilidad.</li>
+                                    <li>Caminatas y ejercicios multicomponente.</li>
+                                </ul>
+                                <ul class="mini-list">
+                                    <li>Prevenci&oacute;n de ca&iacute;das (OMS).</li>
+                                    <li>Progresi&oacute;n suave y supervisi&oacute;n.</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <figure class="fig" style="width:95px;">
+                            <img alt="Adulto mayor activo" loading="lazy"
+                                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&q=70"
+                                style="height:68px;" />
+                        </figure>
+                    </div>
+                </div>
+                <div class="pg-label">Desarrollo</div>
+                <div class="pg-num">03</div>
+            </section>
 
-</div>
-</div>
-<div class="page-label">Desarrollo</div>
-<div class="page-num">05</div>
-</section><section class="page" id="etapas-2"><div class="page-content"><div class="timeline"><article class="stage-card">
-<h3>Adolescencia</h3>
-<p class="muted"><strong>Edad:</strong> 12 a 17 años.</p>
-<ul class="mini-list">
-<li>Aparecen cambios rápidos por crecimiento y maduración biológica.</li>
-<li>Se fortalecen fuerza, resistencia, velocidad y autonomía en la práctica.</li>
-<li>La OMS añade que, dentro de esa actividad semanal, conviene incluir ejercicios vigorosos
-                                y de fortalecimiento muscular y óseo al menos tres días por semana<span class="cite">[web:13]</span>.</li>
-<li>La supervisión técnica ayuda a prevenir sobrecargas y comparaciones poco saludables.
-                            </li>
-</ul>
-</article><article class="stage-card">
-<h3>Adultez</h3>
-<p class="muted"><strong>Edad:</strong> 18 a 59 años.</p>
-<ul class="mini-list">
-<li>La práctica física sostiene salud cardiovascular, fuerza funcional y manejo del estrés.
-                            </li>
-<li>Sirven caminatas, ciclismo, fuerza, movilidad, clases grupales y deportes recreativos.
-                            </li>
-<li>La OMS recomienda entre 150 y 300 minutos semanales de actividad moderada, o entre 75 y
-                                150 minutos vigorosos<span class="cite">[web:11][web:13]</span>.</li>
-<li>Conviene individualizar cargas, técnica y descanso según experiencia y objetivos.</li>
-</ul>
-</article><article class="stage-card">
-<h3>Adulto mayor</h3>
-<p class="muted"><strong>Edad:</strong> 60 años o más.</p>
-<ul class="mini-list">
-<li>Se busca conservar autonomía, equilibrio, movilidad, fuerza y participación social.</li>
-<li>Son útiles caminatas, ejercicios multicomponente, agua, movilidad articular y fuerza
-                                controlada.</li>
-<li>La OMS destaca en personas mayores el trabajo de equilibrio y prevención de caídas,
-                                especialmente tres o más días a la semana cuando existe movilidad reducida<span class="cite">[web:8][web:13]</span>.</li>
-<li>La seguridad exige progresión suave, supervisión y atención a enfermedades previas.</li>
-</ul>
-</article></div></div><div class="page-label">Etapas</div><div class="page-num">05-2</div></section><section class="page" id="habilidades">
-<div class="page-content">
-<p class="section-kicker">Habilidades motrices</p>
-<h2 class="section-title">La base del movimiento cotidiano y deportivo</h2>
-<p class="section-subtitle">Las habilidades motrices son acciones aprendidas que permiten responder con
-                    eficacia a situaciones del juego, la vida escolar, el deporte y la vida diaria. Son la plataforma
-                    sobre la que después se construyen gestos técnicos más complejos.</p>
-<div class="motriz-grid">
-<article class="card">
-<div class="icon">🏃</div>
-<h3>Locomotrices</h3>
-<p>Son desplazamientos del cuerpo en el espacio. Incluyen caminar, correr, saltar, trepar,
-                            reptar y cambiar de dirección.</p>
-<ul class="mini-list">
-<li><strong>Ejemplos:</strong> ir al salón, correr en relevo, saltar una cuerda, subir una
-                                colchoneta.</li>
-<li><strong>Importancia:</strong> mejoran autonomía, orientación, agilidad y seguridad
-                                corporal.</li>
-<li><strong>Uso deportivo:</strong> atletismo, fútbol, baloncesto, gimnasia y juegos
-                                recreativos.</li>
-</ul>
-</article>
-<article class="card">
-<div class="icon">🧘</div>
-<h3>No locomotrices</h3>
-<p>Son movimientos que se ejecutan sin desplazamiento principal del cuerpo. Incluyen girar,
-                            flexionar, equilibrarse, estirarse, balancearse y extender segmentos corporales.</p>
-<ul class="mini-list">
-<li><strong>Ejemplos:</strong> mantener una postura, inclinarse, girar sobre el eje corporal
-                                o hacer un estiramiento.</li>
-<li><strong>Importancia:</strong> favorecen control postural, conciencia corporal y
-                                estabilidad.</li>
-<li><strong>Uso deportivo:</strong> danza, yoga, gimnasia, patinaje y ejercicios de
-                                movilidad.</li>
-</ul>
-</article>
-<article class="card">
-<div class="icon">⚽</div>
-<h3>Manipulativas</h3>
-<p>Relacionan el cuerpo con objetos. Incluyen lanzar, atrapar, patear, golpear, conducir y
-                            recibir pelotas, aros, bastones u otros implementos.</p>
-<ul class="mini-list">
-<li><strong>Ejemplos:</strong> pasar un balón, lanzar una pelota al aro, recibir un frisbee
-                                o golpear con raqueta.</li>
-<li><strong>Importancia:</strong> desarrollan precisión, coordinación y toma de decisiones.
-                            </li>
-<li><strong>Uso deportivo:</strong> béisbol, voleibol, balonmano, tenis, fútbol y juegos
-                                escolares.</li>
-</ul>
-</article>
-</div>
-<div class="callout">
-<p style="margin:0;">Cuando la educación física ofrece experiencias variadas, progresivas e
-                        inclusivas, facilita que niñas, niños y jóvenes desarrollen las habilidades psicomotrices y la
-                        confianza necesarias para mantenerse activos<span class="cite">[page:1]</span>.</p>
-</div>
-</div>
-<div class="page-label">Habilidades</div>
-<div class="page-num">06</div>
-</section><section class="page" id="coordinativas">
-<div class="page-content">
-<p class="section-kicker">Capacidades coordinativas</p>
-<h2 class="section-title">Precisión, ajuste y control</h2>
-<p class="section-subtitle">Son capacidades que permiten controlar, regular y organizar el movimiento
-                    con eficacia. Intervienen en la calidad del gesto, la adaptación a cambios del entorno y la solución
-                    motriz en situaciones reales.</p>
-<figure class="figure" style="margin-bottom:1rem;">
-<img alt="Personas entrenando equilibrio y coordinación" loading="lazy" src="https://source.unsplash.com/featured/1600x900/?balance,coordination,training&amp;sig=4"/>
-<figcaption>Coordinar no es moverse más; es moverse mejor.</figcaption>
-</figure>
-<div class="coord-grid">
-<article class="card coord-card">
-<h4>Equilibrio</h4>
-<p>Capacidad para mantener o recuperar estabilidad.</p>
-<p class="muted">Ejemplo deportivo: aterrizar tras un salto o sostener una postura en gimnasia.
-                        </p>
-<span class="chip">Ejercicio: caminar sobre línea o banco bajo.</span>
-</article>
-<article class="card coord-card">
-<h4>Orientación</h4>
-<p>Permite ubicarse y moverse con relación al espacio, al tiempo y a otros objetos.</p>
-<p class="muted">Ejemplo deportivo: desmarque en fútbol o ubicación en baloncesto.</p>
-<span class="chip">Juego: circuitos con conos y cambios de ruta.</span>
-</article>
-<article class="card coord-card">
-<h4>Ritmo</h4>
-<p>Facilita organizar movimientos según una secuencia temporal.</p>
-<p class="muted">Ejemplo deportivo: saltar cuerda, bailar o remar con cadencia.</p>
-<span class="chip">Juego: palmas, pasos y desplazamientos con música.</span>
-</article>
-<article class="card coord-card">
-<h4>Reacción</h4>
-<p>Es la rapidez para responder a un estímulo visual, auditivo o táctil.</p>
-<p class="muted">Ejemplo deportivo: salir al silbato o responder a un pase inesperado.</p>
-<span class="chip">Juego: carreras de salida con señales.</span>
-</article>
+            <!-- PAG 04: HABILIDADES MOTRICES + COORDINATIVAS -->
+            <section class="page" id="habilidades">
+                <div class="pc">
+                    <div
+                        style="display:grid;grid-template-columns:1fr auto;gap:.6rem;align-items:center;flex-shrink:0;">
+                        <div>
+                            <p class="kicker">Habilidades motrices</p>
+                            <h2 class="ttl" style="font-size:clamp(1.2rem,2.6vw,2rem);">La base del movimiento cotidiano
+                                y deportivo</h2>
+                        </div>
+                        <figure class="fig" style="width:115px;">
+                            <img alt="Atleta en movimiento" loading="lazy"
+                                src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=400&q=75"
+                                style="height:76px;" />
+                        </figure>
+                    </div>
+                    <div class="g3" style="flex-shrink:0;">
+                        <div class="motriz-card">
+                            <figure class="fig" style="margin-bottom:.35rem;"><img alt="Atletismo" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&q=70"
+                                    style="height:52px;" /></figure>
+                            <div class="motriz-icon">&#127939;</div>
+                            <h3>Locomotrices</h3>
+                            <p>Caminar, correr, saltar, trepar. Autonom&iacute;a y orientaci&oacute;n espacial.</p>
+                            <div class="chip">Atletismo &middot; F&uacute;tbol</div>
+                        </div>
+                        <div class="motriz-card">
+                            <figure class="fig" style="margin-bottom:.35rem;"><img alt="Yoga equilibrio" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=70"
+                                    style="height:52px;" /></figure>
+                            <div class="motriz-icon">&#129472;</div>
+                            <h3>No locomotrices</h3>
+                            <p>Girar, equilibrarse, estirarse. Control postural y conciencia corporal.</p>
+                            <div class="chip">Yoga &middot; Danza</div>
+                        </div>
+                        <div class="motriz-card">
+                            <figure class="fig" style="margin-bottom:.35rem;"><img alt="Baloncesto" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&q=70"
+                                    style="height:52px;" /></figure>
+                            <div class="motriz-icon">&#9917;</div>
+                            <h3>Manipulativas</h3>
+                            <p>Lanzar, atrapar, patear. Precisi&oacute;n y toma de decisiones.</p>
+                            <div class="chip">Baloncesto &middot; Tenis</div>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div style="flex-shrink:0;">
+                        <p class="kicker">Capacidades coordinativas</p>
+                        <h3 class="ttl-sm" style="font-size:clamp(.92rem,1.9vw,1.38rem);">Precisi&oacute;n, ajuste y
+                            control del movimiento</h3>
+                    </div>
+                    <div class="g4" style="flex:1;">
+                        <div class="coord-card">
+                            <h4>&#9878; Equilibrio</h4>
+                            <p style="font-size:.68rem;color:var(--muted);">Mantener o recuperar estabilidad.</p>
+                            <div class="chip">L&iacute;nea &middot; Patinaje</div>
+                        </div>
+                        <div class="coord-card">
+                            <h4>&#128506; Orientaci&oacute;n</h4>
+                            <p style="font-size:.68rem;color:var(--muted);">Ubicarse en espacio y tiempo.</p>
+                            <div class="chip">Circuitos</div>
+                        </div>
+                        <div class="coord-card">
+                            <h4>&#127925; Ritmo</h4>
+                            <p style="font-size:.68rem;color:var(--muted);">Organizar movimientos en secuencia temporal.
+                            </p>
+                            <div class="chip">M&uacute;sica &middot; Danza</div>
+                        </div>
+                        <div class="coord-card">
+                            <h4>&#9889; Reacci&oacute;n</h4>
+                            <p style="font-size:.68rem;color:var(--muted);">Responder r&aacute;pido ante un
+                                est&iacute;mulo.</p>
+                            <div class="chip">Salidas &middot; Sprints</div>
+                        </div>
+                        <div class="coord-card">
+                            <h4>&#128279; Acoplamiento</h4>
+                            <p style="font-size:.68rem;color:var(--muted);">Integrar movimientos en acci&oacute;n
+                                global.</p>
+                            <div class="chip">Nadar &middot; Saltar</div>
+                        </div>
+                        <div class="coord-card">
+                            <h4>&#127919; &Oacute;culo-manual</h4>
+                            <p style="font-size:.68rem;color:var(--muted);">Visi&oacute;n + ejecuci&oacute;n con manos o
+                                pies.</p>
+                            <div class="chip">Pases &middot; Punter&iacute;a</div>
+                        </div>
+                        <div class="coord-card">
+                            <h4>&#128208; Diferenciaci&oacute;n</h4>
+                            <p style="font-size:.68rem;color:var(--muted);">Ajustar fuerza y precisi&oacute;n del gesto.
+                            </p>
+                            <div class="chip">Lanzar a distancias</div>
+                        </div>
+                        <div class="coord-card">
+                            <h4>&#128260; Adaptaci&oacute;n</h4>
+                            <p style="font-size:.68rem;color:var(--muted);">Modificar respuesta ante cambios del
+                                entorno.</p>
+                            <div class="chip">Mini-partidos</div>
+                        </div>
+                    </div>
+                    <div class="callout" style="font-size:.7rem;">Experiencias <strong>variadas, progresivas e
+                            inclusivas</strong> permiten que ni&ntilde;os y j&oacute;venes desarrollen habilidades y
+                        confianza para mantenerse activos.</div>
+                </div>
+                <div class="pg-label">Habilidades &middot; Coordinaci&oacute;n</div>
+                <div class="pg-num">04</div>
+            </section>
 
+            <!-- PAG 05: CAPACIDADES FISICAS -->
+            <section class="page" id="fisicas">
+                <div class="pc">
+                    <div style="flex-shrink:0;">
+                        <p class="kicker">Capacidades f&iacute;sicas condicionales</p>
+                        <h2 class="ttl" style="font-size:clamp(1.3rem,2.8vw,2.2rem);">Condici&oacute;n f&iacute;sica con
+                            sentido</h2>
+                        <p class="sub" style="margin-top:.18rem;font-size:.72rem;">Desarrollo progresivo, t&eacute;cnico
+                            y acorde con la edad, nivel y objetivo de cada persona.</p>
+                    </div>
+                    <figure class="fig" style="flex-shrink:0;">
+                        <img alt="Entrenamiento funcional" loading="lazy"
+                            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=75"
+                            style="height:82px;" />
+                        <figcaption>El entrenamiento funcional integra m&uacute;ltiples capacidades f&iacute;sicas en
+                            movimientos reales.</figcaption>
+                    </figure>
+                    <div class="g2x3" style="flex:1;">
+                        <article class="phys-card">
+                            <figure class="fig" style="margin-bottom:.2rem;"><img alt="Fuerza ejercicio" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=400&q=70"
+                                    style="height:46px;" /></figure>
+                            <div class="phys-header">
+                                <div class="ring">&#128170;</div>
+                                <h3>Fuerza</h3>
+                            </div>
+                            <p>Generar tensi&oacute;n muscular para mover, sostener o resistir una carga.</p>
+                            <ul class="mini-list">
+                                <li>Sentadillas, empujes, tracciones.</li>
+                                <li>Protecci&oacute;n articular y postura.</li>
+                            </ul>
+                        </article>
+                        <article class="phys-card">
+                            <figure class="fig" style="margin-bottom:.2rem;"><img alt="Corriendo resistencia"
+                                    loading="lazy"
+                                    src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=400&q=70"
+                                    style="height:46px;" /></figure>
+                            <div class="phys-header">
+                                <div class="ring">&#10084;</div>
+                                <h3>Resistencia</h3>
+                            </div>
+                            <p>Sostener un esfuerzo sin fatiga excesiva durante el tiempo.</p>
+                            <ul class="mini-list">
+                                <li>Trotar, pedalear, nadar.</li>
+                                <li>Salud cardiovascular.</li>
+                            </ul>
+                        </article>
+                        <article class="phys-card">
+                            <figure class="fig" style="margin-bottom:.2rem;"><img alt="Sprint velocidad" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&q=70"
+                                    style="height:46px;" /></figure>
+                            <div class="phys-header">
+                                <div class="ring">&#9889;</div>
+                                <h3>Velocidad</h3>
+                            </div>
+                            <p>Realizar acciones motrices en el menor tiempo posible.</p>
+                            <ul class="mini-list">
+                                <li>Sprints cortos, salidas.</li>
+                                <li>Reacci&oacute;n y eficiencia.</li>
+                            </ul>
+                        </article>
+                        <article class="phys-card">
+                            <figure class="fig" style="margin-bottom:.2rem;"><img alt="Flexibilidad estiramiento"
+                                    loading="lazy"
+                                    src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&q=70"
+                                    style="height:46px;" /></figure>
+                            <div class="phys-header">
+                                <div class="ring">&#129336;</div>
+                                <h3>Flexibilidad</h3>
+                            </div>
+                            <p>Amplitud de movimiento en m&uacute;sculos y tejidos blandos.</p>
+                            <ul class="mini-list">
+                                <li>Estiramientos controlados.</li>
+                                <li>Mejor ejecuci&oacute;n t&eacute;cnica.</li>
+                            </ul>
+                        </article>
+                        <article class="phys-card">
+                            <figure class="fig" style="margin-bottom:.2rem;"><img alt="Movilidad articular"
+                                    loading="lazy"
+                                    src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=70"
+                                    style="height:46px;" /></figure>
+                            <div class="phys-header">
+                                <div class="ring">&#129461;</div>
+                                <h3>Movilidad</h3>
+                            </div>
+                            <p>Control en el rango disponible de una articulaci&oacute;n.</p>
+                            <ul class="mini-list">
+                                <li>Cadera, tobillo, hombro.</li>
+                                <li>Postura y prevenci&oacute;n.</li>
+                            </ul>
+                        </article>
+                        <article class="phys-card">
+                            <figure class="fig" style="margin-bottom:.2rem;"><img alt="Salto potencia" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?w=400&q=70"
+                                    style="height:46px;" /></figure>
+                            <div class="phys-header">
+                                <div class="ring">&#128640;</div>
+                                <h3>Potencia</h3>
+                            </div>
+                            <p>Combinaci&oacute;n de fuerza y velocidad para acciones explosivas.</p>
+                            <ul class="mini-list">
+                                <li>Saltos, lanzamientos.</li>
+                                <li>Eficacia atl&eacute;tica.</li>
+                            </ul>
+                        </article>
+                    </div>
+                    <div class="g2" style="flex-shrink:0;gap:.45rem;">
+                        <div class="callout" style="font-size:.7rem;">El <strong>ACSM</strong> recomienda programas
+                            equilibrados: trabajo aer&oacute;bico, resistencia muscular, flexibilidad y ejercicios
+                            neuromotores.</div>
+                        <div class="quote-box" style="font-size:.74rem;">&ldquo;Entrenar es aprender a cuidar y conocer
+                            el propio cuerpo.&rdquo;</div>
+                    </div>
+                </div>
+                <div class="pg-label">Cap. F&iacute;sicas</div>
+                <div class="pg-num">05</div>
+            </section>
 
-
-
-</div>
-</div>
-<div class="page-label">Coordinación</div>
-<div class="page-num">07</div>
-</section><section class="page" id="coordinativas-2"><div class="page-content"><div class="coord-grid"><article class="card coord-card">
-<h4>Acoplamiento</h4>
-<p>Integra movimientos parciales del cuerpo en una acción global eficiente.</p>
-<p class="muted">Ejemplo deportivo: coordinar brazos y piernas al nadar.</p>
-<span class="chip">Ejercicio: secuencias de salto y lanzamiento.</span>
-</article><article class="card coord-card">
-<h4>Diferenciación</h4>
-<p>Permite ajustar fuerza, amplitud y precisión del gesto.</p>
-<p class="muted">Ejemplo deportivo: regular la potencia de un pase o un saque.</p>
-<span class="chip">Juego: lanzamientos a distintas distancias.</span>
-</article><article class="card coord-card">
-<h4>Adaptación</h4>
-<p>Ayuda a modificar la respuesta motriz cuando cambian las condiciones.</p>
-<p class="muted">Ejemplo deportivo: variar estrategia ante un rival o superficie distinta.</p>
-<span class="chip">Juego: mini partidos con reglas variables.</span>
-</article><article class="card coord-card">
-<h4>Óculo-manual y óculo-pédica</h4>
-<p>Relacionan visión y ejecución con manos o pies.</p>
-<p class="muted">Ejemplo deportivo: atrapar una pelota o conducir un balón.</p>
-<span class="chip">Ejercicio: recepciones, puntería y pases dirigidos.</span>
-</article></div></div><div class="page-label">Coordinativas</div><div class="page-num">07-2</div></section><section class="page" id="fisicas">
-<div class="page-content">
-<p class="section-kicker">Capacidades físicas</p>
-<h2 class="section-title">Condición física con sentido</h2>
-<p class="section-subtitle">Las capacidades físicas condicionales sostienen el rendimiento y la salud.
-                    Su desarrollo debe ser progresivo, técnico y acorde con la edad, el nivel y el objetivo de quien
-                    practica.</p>
-<div class="physical-grid">
-<article class="card physical-card">
-<div class="top">
-<div class="ring">💪</div>
-<h3>Fuerza</h3>
-</div>
-<p>Capacidad de generar tensión muscular para mover, sostener o resistir una carga.</p>
-<ul class="mini-list">
-<li><strong>Ejemplo:</strong> sentadillas, empujes, tracciones, subir escaleras.</li>
-<li><strong>Beneficios:</strong> protección articular, postura y autonomía funcional.</li>
-<li><strong>Seguro para estudiantes:</strong> técnica correcta, cargas moderadas y
-                                supervisión.</li>
-</ul>
-</article>
-<article class="card physical-card">
-<div class="top">
-<div class="ring">❤️</div>
-<h3>Resistencia</h3>
-</div>
-<p>Capacidad de sostener un esfuerzo durante el tiempo sin fatiga excesiva.</p>
-<ul class="mini-list">
-<li><strong>Ejemplo:</strong> trotar, pedalear, nadar, juegos continuos.</li>
-<li><strong>Beneficios:</strong> salud cardiovascular y mejor recuperación.</li>
-<li><strong>Seguro para estudiantes:</strong> empezar con tiempos breves y aumentar poco a
-                                poco.</li>
-</ul>
-</article>
-<article class="card physical-card">
-<div class="top">
-<div class="ring">⚡</div>
-<h3>Velocidad</h3>
-</div>
-<p>Capacidad de realizar acciones motrices en el menor tiempo posible.</p>
-<ul class="mini-list">
-<li><strong>Ejemplo:</strong> sprints cortos, salidas, persecuciones y relevos.</li>
-<li><strong>Beneficios:</strong> reacción, eficiencia y capacidad competitiva.</li>
-<li><strong>Seguro para estudiantes:</strong> calentamiento previo y pausas suficientes.
-                            </li>
-</ul>
-</article>
-
-
-
-</div>
-
-
-</div>
-<div class="page-label">Capacidades físicas</div>
-<div class="page-num">08</div>
-</section><section class="page" id="fisicas-2"><div class="page-content"><div class="physical-grid"><article class="card physical-card">
-<div class="top">
-<div class="ring">🤸</div>
-<h3>Flexibilidad</h3>
-</div>
-<p>Capacidad de alcanzar amplitud de movimiento en músculos y tejidos blandos.</p>
-<ul class="mini-list">
-<li><strong>Ejemplo:</strong> estiramientos controlados y movilidad asistida.</li>
-<li><strong>Beneficios:</strong> sensación de soltura y mejor ejecución técnica.</li>
-<li><strong>Seguro para estudiantes:</strong> estirar sin rebotes bruscos y sin dolor.</li>
-</ul>
-</article><article class="card physical-card">
-<div class="top">
-<div class="ring">🦵</div>
-<h3>Movilidad</h3>
-</div>
-<p>Capacidad funcional de moverse con control en el rango disponible de una articulación.</p>
-<ul class="mini-list">
-<li><strong>Ejemplo:</strong> movilidad de cadera, tobillo, hombro y columna.</li>
-<li><strong>Beneficios:</strong> técnica eficiente, postura y prevención de compensaciones.
-                            </li>
-<li><strong>Seguro para estudiantes:</strong> rutinas breves antes y después de la sesión.
-                            </li>
-</ul>
-</article><article class="card physical-card">
-<div class="top">
-<div class="ring">🚀</div>
-<h3>Potencia</h3>
-</div>
-<p>Combinación de fuerza y velocidad para producir acciones explosivas.</p>
-<ul class="mini-list">
-<li><strong>Ejemplo:</strong> saltos, lanzamientos o cambios de ritmo.</li>
-<li><strong>Beneficios:</strong> eficacia atlética y respuesta rápida.</li>
-<li><strong>Seguro para estudiantes:</strong> dominar primero la técnica básica antes de la
-                                intensidad.</li>
-</ul>
-</article></div><div class="callout">
-<p style="margin:0;">El ACSM recomienda programas equilibrados que incluyan trabajo aeróbico,
-                        resistencia muscular, flexibilidad y ejercicios neuromotores, además de un calentamiento y una
-                        vuelta a la calma adecuados<span class="cite">[web:23][web:24]</span>.</p>
-</div><div class="quote-box" style="margin-top:1rem;">
-                    “Entrenar no consiste solamente en exigir al cuerpo, sino en aprender a cuidarlo y conocerlo.”
-                </div></div><div class="page-label">Cap. Físicas</div><div class="page-num">08-2</div></section><section class="page" id="tendencias">
-<div class="page-content">
-<p class="section-kicker">Especial editorial</p>
-<h2 class="section-title">TENDENCIAS QUE MUEVEN AL MUNDO</h2>
-<div class="trend-intro">
-<article class="card">
-<p>Las tendencias deportivas han crecido porque hoy las personas buscan bienestar físico, salud
-                            mental, variedad de experiencias, tecnología aplicada al entrenamiento, clases grupales más
-                            motivantes y formatos que conecten con la vida diaria, las redes sociales y los objetivos
-                            personales.</p>
-<p>En este escenario conviven propuestas mente-cuerpo, sesiones cardiovasculares, trabajo
-                            funcional, disciplinas de combate, programas coreografiados y entrenamientos de alta
-                            intensidad. El reto no es probar todo, sino elegir con criterio, progresión y disfrute.</p>
-</article>
-<aside class="alert">
-<p><strong>Atención:</strong> HIIT es el término técnico correcto para el entrenamiento
-                            interválico de alta intensidad. Programas como CrossFit, HIIT, Insanity, GRIT y
-                            entrenamiento militar exigen progresión, técnica y supervisión adecuada.</p>
-<p>Las personas con lesión, embarazo, enfermedad crónica u otra condición particular deben
-                            consultar a un profesional de salud antes de iniciar rutinas exigentes.</p>
-<p><strong>Indoor Cycling</strong> también suele conocerse como ciclismo bajo techo.</p>
-</aside>
-</div>
-<!-- Categoría 1 -->
-
-<!-- Categoría 2 -->
-
-<!-- Categoría 3 -->
-
-<!-- Categoría 4 -->
-
-<!-- Categoría 5 -->
-
-<!-- Categoría 6 -->
-
-<!-- Categoría 7 -->
-
-</div>
-<div class="page-label">Tendencias</div>
-<div class="page-num">09</div>
-</section><section class="page" id="tendencias-1"><div class="page-content"><div class="category-block">
-<h3>🧠 Mente, equilibrio y movilidad</h3>
-<div class="trend-grid">
-<article class="trend-card">
-<figure>
-<img alt="Personas practicando yoga en un ambiente tranquilo" loading="lazy" src="https://source.unsplash.com/featured/900x600/?yoga,fitness&amp;sig=11"/>
-<figcaption>Yoga: respiración, postura y conciencia corporal.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Yoga</h4><span class="intensity low">Baja</span>
-</div>
-<div class="meta"><span>Mente-cuerpo</span><span>Nivel: principiante</span></div>
-<p>Práctica que combina posturas, respiración y atención corporal para mejorar bienestar
-                                    físico y mental.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> movilidad, equilibrio, relajación y control
-                                        postural.</li>
-<li><strong>Trabaja:</strong> flexibilidad, equilibrio, coordinación y respiración.
-                                    </li>
-<li><strong>Población:</strong> amplia; útil en contextos escolares y adultos.</li>
-<li><strong>Precauciones:</strong> adaptar posturas en dolor, lesión o
-                                        hipermovilidad.</li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Grupo realizando taichí al aire libre" loading="lazy" src="https://source.unsplash.com/featured/900x600/?tai-chi,park&amp;sig=12"/>
-<figcaption>Taichí: fluidez, control y respiración.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Taichí</h4><span class="intensity low">Baja</span>
-</div>
-<div class="meta"><span>Mente-cuerpo</span><span>Nivel: principiante</span></div>
-<p>Disciplina de movimientos suaves y encadenados que prioriza control, concentración y
-                                    estabilidad.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> calma, postura, movilidad y equilibrio.</li>
-<li><strong>Trabaja:</strong> coordinación, ritmo, equilibrio y conciencia corporal.
-                                    </li>
-<li><strong>Población:</strong> adolescentes, adultos y personas mayores.</li>
-<li><strong>Precauciones:</strong> cuidar amplitudes si existe dolor articular.</li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Persona realizando stretching en colchoneta" loading="lazy" src="https://source.unsplash.com/featured/900x600/?stretching,gym&amp;sig=13"/>
-<figcaption>Stretching: amplitud y alivio muscular.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Stretching</h4><span class="intensity low">Baja</span>
-</div>
-<div class="meta"><span>Mente-cuerpo</span><span>Nivel: principiante</span></div>
-<p>Sesiones centradas en estiramientos y control respiratorio para mejorar la amplitud
-                                    de movimiento.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> sensación de soltura y mejor movilidad.</li>
-<li><strong>Trabaja:</strong> flexibilidad, movilidad y control corporal.</li>
-<li><strong>Población:</strong> estudiantes, deportistas y personas sedentarias.
-                                    </li>
-<li><strong>Precauciones:</strong> evitar forzar rangos o rebotar con dolor.</li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Entrenamiento de propiocepción sobre superficie inestable" loading="lazy" src="https://source.unsplash.com/featured/900x600/?balance,board,training&amp;sig=14"/>
-<figcaption>Propiocepción: estabilidad y respuesta neuromuscular.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Propiocepción</h4><span class="intensity low">Baja</span>
-</div>
-<div class="meta"><span>Mente-cuerpo</span><span>Nivel: principiante</span></div>
-<p>Trabajo orientado a percibir posición, tensión y movimiento del cuerpo para mejorar
-                                    control neuromuscular.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> estabilidad articular y prevención funcional.</li>
-<li><strong>Trabaja:</strong> equilibrio, reacción, adaptación y coordinación.</li>
-<li><strong>Población:</strong> deportistas, rehabilitación y adultos mayores
-                                        activos.</li>
-<li><strong>Precauciones:</strong> iniciar con apoyos seguros y progresión simple.
-                                    </li>
-</ul>
-</div>
-</article>
-</div>
-</div></div><div class="page-label">Tendencias</div><div class="page-num">09-1</div></section><section class="page" id="tendencias-2"><div class="page-content"><div class="category-block">
-<h3>🏋 Fuerza, estabilidad y control corporal</h3>
-<div class="trend-grid">
-<article class="trend-card">
-<figure>
-<img alt="Clase de pilates en estudio" loading="lazy" src="https://source.unsplash.com/featured/900x600/?pilates,studio&amp;sig=15"/>
-<figcaption>Pilates: centro corporal y control del movimiento.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Pilates</h4><span class="intensity low">Baja</span>
-</div>
-<div class="meta"><span>Fuerza</span><span>Nivel: principiante</span></div>
-<p>Método que integra respiración, precisión y control del centro corporal con
-                                    ejercicios en suelo o implementos.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> postura, estabilidad y conciencia corporal.</li>
-<li><strong>Trabaja:</strong> core, movilidad, diferenciación y equilibrio.</li>
-<li><strong>Población:</strong> amplia, con adaptación según nivel.</li>
-<li><strong>Precauciones:</strong> cuidar columna y rangos en dolor lumbar.</li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Entrenamiento de core en colchoneta" loading="lazy" src="https://source.unsplash.com/featured/900x600/?core,exercise&amp;sig=16"/>
-<figcaption>Core: base para transferir fuerza y estabilidad.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Core</h4><span class="intensity mid">Media</span>
-</div>
-<div class="meta"><span>Fuerza</span><span>Nivel: principiante</span></div>
-<p>Entrenamiento enfocado en abdomen, zona lumbar, pelvis y musculatura profunda del
-                                    tronco.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> estabilidad, postura y eficiencia del gesto.</li>
-<li><strong>Trabaja:</strong> fuerza, control postural y acoplamiento.</li>
-<li><strong>Población:</strong> estudiantes, deportistas y población general.</li>
-<li><strong>Precauciones:</strong> evitar compensaciones cervicales o lumbares.</li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Ejercicio con bandas de suspensión TRX" loading="lazy" src="https://source.unsplash.com/featured/900x600/?trx,suspension,training&amp;sig=17"/>
-<figcaption>TRX: trabajo en suspensión con el propio peso.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>TRX</h4><span class="intensity mid">Media</span>
-</div>
-<div class="meta"><span>Funcional</span><span>Nivel: intermedio</span></div>
-<p>Sistema de suspensión que usa el peso corporal para entrenar fuerza, estabilidad y
-                                    coordinación.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> fuerza global y control corporal.</li>
-<li><strong>Trabaja:</strong> core, equilibrio, fuerza y adaptación.</li>
-<li><strong>Población:</strong> personas con base técnica inicial.</li>
-<li><strong>Precauciones:</strong> regular inclinación y anclajes seguros.</li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Clase enfocada en glúteos, abdomen y piernas" loading="lazy" src="https://source.unsplash.com/featured/900x600/?gap,fitness,legs&amp;sig=18"/>
-<figcaption>GAP: énfasis en glúteos, abdomen y piernas.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>GAP</h4><span class="intensity mid">Media</span>
-</div>
-<div class="meta"><span>Fuerza</span><span>Nivel: principiante</span></div>
-<p>Clase dirigida al fortalecimiento localizado de glúteos, abdomen y piernas con
-                                    repeticiones controladas.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> tono muscular y estabilidad inferior.</li>
-<li><strong>Trabaja:</strong> fuerza, resistencia muscular y core.</li>
-<li><strong>Población:</strong> principiantes y nivel general.</li>
-<li><strong>Precauciones:</strong> cuidar alineación de rodillas y espalda.</li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Clase de Body Pump con barras y discos" loading="lazy" src="https://source.unsplash.com/featured/900x600/?body-pump,weights&amp;sig=19"/>
-<figcaption>Body Pump: fuerza coreografiada con cargas ligeras.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Body Pump</h4><span class="intensity mid">Media</span>
-</div>
-<div class="meta"><span>Fuerza</span><span>Nivel: intermedio</span></div>
-<p>Clase grupal con barra y discos ligeros a moderados, muchas repeticiones y música
-                                    guiada.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> resistencia muscular y motivación grupal.</li>
-<li><strong>Trabaja:</strong> fuerza, resistencia y ritmo.</li>
-<li><strong>Población:</strong> adolescentes mayores y adultos sin dolor agudo.</li>
-<li><strong>Precauciones:</strong> ajustar cargas y dominar técnica básica.</li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Clase grupal de trabajo de zona media" loading="lazy" src="https://source.unsplash.com/featured/900x600/?core,group,workout&amp;sig=20"/>
-<figcaption>CX Worx: estabilidad central en formato grupal.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>CX Worx</h4><span class="intensity mid">Media</span>
-</div>
-<div class="meta"><span>Fuerza</span><span>Nivel: intermedio</span></div>
-<p>Programa breve de entrenamiento del centro corporal con bandas, discos y peso
-                                    corporal.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> firmeza del tronco y transferencia a otros gestos.
-                                    </li>
-<li><strong>Trabaja:</strong> core, postura, acoplamiento y resistencia local.</li>
-<li><strong>Población:</strong> quienes buscan sesiones cortas y específicas.</li>
-<li><strong>Precauciones:</strong> vigilar cuello, lumbar y fatiga técnica.</li>
-</ul>
-</div>
-</article>
-</div>
-</div></div><div class="page-label">Tendencias</div><div class="page-num">09-2</div></section><section class="page" id="tendencias-3"><div class="page-content"><div class="category-block">
-<h3>🎵 Baile, música y expresión corporal</h3>
-<div class="trend-grid">
-<article class="trend-card">
-<figure>
-<img alt="Grupo bailando rumba fitness" loading="lazy" src="https://source.unsplash.com/featured/900x600/?dance,fitness,latin&amp;sig=21"/>
-<figcaption>Rumba: alegría, ritmo y movimiento social.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Rumba</h4><span class="intensity mid">Media</span>
-</div>
-<div class="meta"><span>Baile</span><span>Nivel: principiante</span></div>
-<p>Clase coreografiada de inspiración latina que une pasos simples, música y gasto
-                                    energético moderado.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> disfrute, coordinación y socialización.</li>
-<li><strong>Trabaja:</strong> ritmo, resistencia y orientación espacial.</li>
-<li><strong>Población:</strong> grupos escolares, adultos y principiantes.</li>
-<li><strong>Precauciones:</strong> adaptar saltos si hay molestias articulares.</li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Clase de aeróbicos con desplazamientos coordinados" loading="lazy" src="https://source.unsplash.com/featured/900x600/?aerobics,class&amp;sig=22"/>
-<figcaption>Aeróbicos: secuencias continuas y energía grupal.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Aeróbicos</h4><span class="intensity mid">Media</span>
-</div>
-<div class="meta"><span>Cardiovascular</span><span>Nivel: principiante</span></div>
-<p>Formato clásico de ejercicios continuos y coreografiados que elevan la frecuencia
-                                    cardíaca de manera progresiva.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> resistencia, coordinación y gasto calórico.</li>
-<li><strong>Trabaja:</strong> ritmo, resistencia y memoria motriz.</li>
-<li><strong>Población:</strong> amplia, con variantes por nivel.</li>
-<li><strong>Precauciones:</strong> usar calzado adecuado y buena técnica de apoyo.
-                                    </li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Participantes en clase de zumba" loading="lazy" src="https://source.unsplash.com/featured/900x600/?zumba,fitness&amp;sig=23"/>
-<figcaption>Zumba: cardio con ambiente festivo.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Zumba</h4><span class="intensity mid">Media</span>
-</div>
-<div class="meta"><span>Baile</span><span>Nivel: principiante</span></div>
-<p>Programa de baile fitness con ritmos latinos y movimientos accesibles que priorizan
-                                    diversión y continuidad.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> adherencia, ánimo y condición cardiovascular.</li>
-<li><strong>Trabaja:</strong> resistencia, coordinación y ritmo.</li>
-<li><strong>Población:</strong> adolescentes y adultos de nivel general.</li>
-<li><strong>Precauciones:</strong> moderar impactos si hay sobrepeso o dolor.</li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Clase de step con plataformas" loading="lazy" src="https://source.unsplash.com/featured/900x600/?step,aerobics&amp;sig=24"/>
-<figcaption>Step: precisión rítmica con plataforma.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Step</h4><span class="intensity mid">Media</span>
-</div>
-<div class="meta"><span>Cardiovascular</span><span>Nivel: intermedio</span></div>
-<p>Clase que utiliza una plataforma para subir, bajar y combinar secuencias al ritmo de
-                                    la música.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> coordinación y trabajo cardiorrespiratorio.</li>
-<li><strong>Trabaja:</strong> resistencia, ritmo y fuerza de piernas.</li>
-<li><strong>Población:</strong> personas con buena tolerancia al impacto moderado.
-                                    </li>
-<li><strong>Precauciones:</strong> cuidar rodillas, altura del step y postura.</li>
-</ul>
-</div>
-</article>
-</div>
-</div></div><div class="page-label">Tendencias</div><div class="page-num">09-3</div></section><section class="page" id="tendencias-4"><div class="page-content"><div class="category-block">
-<h3>🥊 Combate y disciplina</h3>
-<div class="trend-grid">
-<article class="trend-card">
-<figure>
-<img alt="Clase grupal de body combat" loading="lazy" src="https://source.unsplash.com/featured/900x600/?body-combat,fitness&amp;sig=25"/>
-<figcaption>Body Combat: energía de combate sin contacto.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Body Combat</h4><span class="intensity high">Alta</span>
-</div>
-<div class="meta"><span>Combate</span><span>Nivel: intermedio</span></div>
-<p>Clase inspirada en artes marciales con golpes, patadas y desplazamientos sin contacto
-                                    físico directo.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> intensidad, coordinación y desestrés.</li>
-<li><strong>Trabaja:</strong> resistencia, velocidad, reacción y potencia.</li>
-<li><strong>Población:</strong> personas activas que disfrutan sesiones dinámicas.
-                                    </li>
-<li><strong>Precauciones:</strong> controlar impacto, técnica y rango de patadas.
-                                    </li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Persona practicando tae bo" loading="lazy" src="https://source.unsplash.com/featured/900x600/?tae-bo,workout&amp;sig=26"/>
-<figcaption>Tae Bo: mezcla de artes marciales y aeróbicos.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Tae Bo</h4><span class="intensity high">Alta</span>
-</div>
-<div class="meta"><span>Combate</span><span>Nivel: intermedio</span></div>
-<p>Formato fitness que mezcla movimientos de boxeo y artes marciales con ritmo continuo.
+            <!-- PAG 06: TENDENCIAS (16 disciplinas 4x4) -->
+            <section class="page" id="tendencias">
+                <div class="pc">
+                    <div style="flex-shrink:0;">
+                        <p class="kicker">Especial editorial</p>
+                        <h2 class="ttl" style="font-size:clamp(1.1rem,2.3vw,1.85rem);">Tendencias que mueven al mundo
+                        </h2>
+                        <p class="sub" style="margin-top:.12rem;font-size:.7rem;">Elegir con criterio, progresi&oacute;n
+                            y disfrute. <span style="color:#7affd8;">&#9679; Baja</span> &nbsp;<span
+                                style="color:#ffe08f;">&#9679; Media</span> &nbsp;<span style="color:#ffadb5;">&#9679;
+                                Alta intensidad</span></p>
+                    </div>
+                    <div class="g4x4" style="flex:1;">
+                        <article class="trend-card">
+                            <figure><img alt="Yoga" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=70" />
+                            </figure>
+                            <div class="trend-body">
+                                <div class="trend-head">
+                                    <h4>Yoga</h4><span class="intensity low">Baja</span>
+                                </div>
+                                <div class="trend-meta"><span>Mente-cuerpo</span></div>
+                                <p class="trend-p">Posturas, respiraci&oacute;n y bienestar f&iacute;sico-mental.</p>
+                            </div>
+                        </article>
+                        <article class="trend-card">
+                            <figure><img alt="Pilates" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=70" />
+                            </figure>
+                            <div class="trend-body">
+                                <div class="trend-head">
+                                    <h4>Pilates</h4><span class="intensity low">Baja</span>
+                                </div>
+                                <div class="trend-meta"><span>Fuerza</span></div>
+                                <p class="trend-p">Control del centro corporal, postura y estabilidad.</p>
+                            </div>
+                        </article>
+                        <article class="trend-card">
+                            <figure><img alt="Stretching" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&q=70" />
+                            </figure>
+                            <div class="trend-body">
+                                <div class="trend-head">
+                                    <h4>Stretching</h4><span class="intensity low">Baja</span>
+                                </div>
+                                <div class="trend-meta"><span>Movilidad</span></div>
+                                <p class="trend-p">Estiramientos para amplitud de movimiento.</p>
+                            </div>
+                        </article>
+                        <article class="trend-card">
+                            <figure><img alt="Hidroaerobicos" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=400&q=70" />
+                            </figure>
+                            <div class="trend-body">
+                                <div class="trend-head">
+                                    <h4>Hidroaer&oacute;bicos</h4><span class="intensity low">Baja</span>
+                                </div>
+                                <div class="trend-meta"><span>Agua</span></div>
+                                <p class="trend-p">Bajo impacto articular, alta resistencia.</p>
+                            </div>
+                        </article>
+                        <article class="trend-card">
+                            <figure><img alt="Core" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&q=70" />
+                            </figure>
+                            <div class="trend-body">
+                                <div class="trend-head">
+                                    <h4>Core</h4><span class="intensity mid">Media</span>
+                                </div>
+                                <div class="trend-meta"><span>Fuerza</span></div>
+                                <p class="trend-p">Abdomen, lumbar y pelvis. Estabilidad y postura.</p>
+                            </div>
+                        </article>
+                        <article class="trend-card">
+                            <figure><img alt="TRX" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=70" />
+                            </figure>
+                            <div class="trend-body">
+                                <div class="trend-head">
+                                    <h4>TRX</h4><span class="intensity mid">Media</span>
+                                </div>
+                                <div class="trend-meta"><span>Funcional</span></div>
+                                <p class="trend-p">Suspensi&oacute;n con peso corporal. Fuerza y coordinaci&oacute;n.
                                 </p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> gasto energético y coordinación global.</li>
-<li><strong>Trabaja:</strong> resistencia, ritmo, reacción y potencia.</li>
-<li><strong>Población:</strong> nivel general con experiencia básica previa.</li>
-<li><strong>Precauciones:</strong> evitar hiperextensión en golpes y patadas.</li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Entrenamiento de kick boxing con guantes" loading="lazy" src="https://source.unsplash.com/featured/900x600/?kickboxing,training&amp;sig=27"/>
-<figcaption>Kick Boxing: técnica, potencia y enfoque.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Kick Boxing</h4><span class="intensity high">Alta</span>
-</div>
-<div class="meta"><span>Combate</span><span>Nivel: intermedio</span></div>
-<p>Disciplina de golpeo que combina puños y patadas con trabajo técnico, físico y
-                                    mental.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> condición física, autoconfianza y precisión.</li>
-<li><strong>Trabaja:</strong> potencia, velocidad, reacción y coordinación.</li>
-<li><strong>Población:</strong> adolescentes mayores y adultos con guía técnica.
-                                    </li>
-<li><strong>Precauciones:</strong> usar protección y progresar antes del contacto.
-                                    </li>
-</ul>
-</div>
-</article>
-</div>
-</div></div><div class="page-label">Tendencias</div><div class="page-num">09-4</div></section><section class="page" id="tendencias-5"><div class="page-content"><div class="category-block">
-<h3>🚴 Resistencia cardiovascular y ciclismo</h3>
-<div class="trend-grid">
-<article class="trend-card">
-<figure>
-<img alt="Clase de spinning en bicicletas estáticas" loading="lazy" src="https://source.unsplash.com/featured/900x600/?spinning,bike,class&amp;sig=28"/>
-<figcaption>Spinning: pedaleo guiado de intensidad variable.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Spinning</h4><span class="intensity high">Alta</span>
-</div>
-<div class="meta"><span>Cardiovascular</span><span>Nivel: intermedio</span></div>
-<p>Clase sobre bicicleta estática con cambios de ritmo, resistencia y trabajo musical
-                                    guiado.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> resistencia cardiovascular y motivación grupal.
-                                    </li>
-<li><strong>Trabaja:</strong> resistencia, fuerza de piernas y ritmo.</li>
-<li><strong>Población:</strong> adultos y jóvenes con tolerancia al esfuerzo.</li>
-<li><strong>Precauciones:</strong> ajustar sillín, manillar e hidratación.</li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Clase de indoor cycling o ciclismo bajo techo" loading="lazy" src="https://source.unsplash.com/featured/900x600/?indoor,cycling,fitness&amp;sig=29"/>
-<figcaption>Indoor Cycling: ciclismo bajo techo con control de carga.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Indoor Cycling</h4><span class="intensity high">Alta</span>
-</div>
-<div class="meta"><span>Cardiovascular</span><span>Nivel: intermedio</span></div>
-<p>Entrenamiento en bicicleta estática, también conocido como ciclismo bajo techo, con
-                                    trabajo por cadencia y resistencia.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> capacidad aeróbica y control del esfuerzo.</li>
-<li><strong>Trabaja:</strong> resistencia, ritmo y fuerza de tren inferior.</li>
-<li><strong>Población:</strong> usuarios de gimnasio y clases dirigidas.</li>
-<li><strong>Precauciones:</strong> regular postura, intensidad y recuperación.</li>
-</ul>
-</div>
-</article>
-</div>
-</div></div><div class="page-label">Tendencias</div><div class="page-num">09-5</div></section><section class="page" id="tendencias-6"><div class="page-content"><div class="category-block">
-<h3>🔥 Alta intensidad y entrenamiento funcional</h3>
-<div class="trend-grid">
-<article class="trend-card">
-<figure>
-<img alt="Sesión intensa de entrenamiento GRIT" loading="lazy" src="https://source.unsplash.com/featured/900x600/?grit,workout&amp;sig=30"/>
-<figcaption>GRIT: bloques breves y exigentes.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>GRIT</h4><span class="intensity high">Alta</span>
-</div>
-<div class="meta"><span>Alta intensidad</span><span>Nivel: avanzado</span></div>
-<p>Programa de intervalos cortos y muy exigentes, orientado a rendimiento y mejora
-                                    rápida de condición física.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> eficiencia temporal y desafío metabólico.</li>
-<li><strong>Trabaja:</strong> resistencia, potencia, reacción y fuerza.</li>
-<li><strong>Población:</strong> personas entrenadas y supervisadas.</li>
-<li><strong>Precauciones:</strong> requiere progresión, técnica y recuperación
-                                        suficiente.</li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Entrenamiento HIIT en gimnasio" loading="lazy" src="https://source.unsplash.com/featured/900x600/?hiit,training&amp;sig=31"/>
-<figcaption>HIIT: intervalos intensos con pausas controladas.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>HIIT</h4><span class="intensity high">Alta</span>
-</div>
-<div class="meta"><span>Alta intensidad</span><span>Nivel: intermedio</span></div>
-<p>Entrenamiento interválico de alta intensidad que alterna esfuerzos exigentes con
-                                    pausas o recuperaciones activas.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> estímulo cardiovascular y ahorro de tiempo.</li>
-<li><strong>Trabaja:</strong> resistencia, velocidad, potencia y reacción.</li>
-<li><strong>Población:</strong> personas con base física previa.</li>
-<li><strong>Precauciones:</strong> no confundir con “HIT”; exige dosificación
-                                        precisa.</li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Rutina intensa de insanity" loading="lazy" src="https://source.unsplash.com/featured/900x600/?insanity,home,workout&amp;sig=32"/>
-<figcaption>Insanity: secuencias intensas y gran demanda física.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Insanity</h4><span class="intensity high">Alta</span>
-</div>
-<div class="meta"><span>Alta intensidad</span><span>Nivel: avanzado</span></div>
-<p>Programa intenso con pliometría, cardio y trabajo corporal casi continuo, de fuerte
-                                    exigencia física.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> reto cardiovascular y resistencia mental.</li>
-<li><strong>Trabaja:</strong> resistencia, potencia, velocidad y coordinación.</li>
-<li><strong>Población:</strong> practicantes avanzados y sin limitaciones recientes.
-                                    </li>
-<li><strong>Precauciones:</strong> alto impacto; necesita técnica y recuperación.
-                                    </li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Entrenamiento funcional con implementos variados" loading="lazy" src="https://source.unsplash.com/featured/900x600/?functional,training&amp;sig=33"/>
-<figcaption>Entrenamiento funcional: movimiento útil y global.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Entrenamiento funcional</h4><span class="intensity mid">Media</span>
-</div>
-<div class="meta"><span>Funcional</span><span>Nivel: principiante</span></div>
-<p>Propuesta que prioriza patrones de movimiento globales aplicables a tareas cotidianas
-                                    y deportivas.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> transferencia práctica y variedad.</li>
-<li><strong>Trabaja:</strong> fuerza, movilidad, equilibrio y coordinación.</li>
-<li><strong>Población:</strong> muy amplia, con adaptación individual.</li>
-<li><strong>Precauciones:</strong> evitar complejidad excesiva sin base técnica.
-                                    </li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Sesión de CrossFit en box de entrenamiento" loading="lazy" src="https://source.unsplash.com/featured/900x600/?crossfit,box&amp;sig=34"/>
-<figcaption>CrossFit: variedad funcional a intensidad controlada.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>CrossFit</h4><span class="intensity high">Alta</span>
-</div>
-<div class="meta"><span>Funcional</span><span>Nivel: avanzado</span></div>
-<p>Metodología que combina levantamientos, gimnasia y trabajo metabólico en sesiones
-                                    variadas.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> condición física amplia y sentido de comunidad.
-                                    </li>
-<li><strong>Trabaja:</strong> fuerza, potencia, resistencia y coordinación.</li>
-<li><strong>Población:</strong> usuarios con progresión y acompañamiento técnico.
-                                    </li>
-<li><strong>Precauciones:</strong> requiere supervisión, escalado y dominio técnico.
-                                    </li>
-</ul>
-</div>
-</article>
-<article class="trend-card">
-<figure>
-<img alt="Entrenamiento militar con obstáculos" loading="lazy" src="https://source.unsplash.com/featured/900x600/?military,training,fitness&amp;sig=35"/>
-<figcaption>Entrenamiento militar: disciplina y desafío físico.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Entrenamiento militar</h4><span class="intensity high">Alta</span>
-</div>
-<div class="meta"><span>Alta intensidad</span><span>Nivel: avanzado</span></div>
-<p>Formato exigente con carreras, estaciones, arrastres, autocarga y trabajo mental de
-                                    disciplina.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> fortaleza general y trabajo en equipo.</li>
-<li><strong>Trabaja:</strong> resistencia, fuerza, reacción y adaptación.</li>
-<li><strong>Población:</strong> personas bien acondicionadas.</li>
-<li><strong>Precauciones:</strong> alto desgaste; no iniciar sin base previa.</li>
-</ul>
-</div>
-</article>
-</div>
-</div></div><div class="page-label">Tendencias</div><div class="page-num">09-6</div></section><section class="page" id="tendencias-7"><div class="page-content"><div class="category-block">
-<h3>🌊 Actividades acuáticas</h3>
-<div class="trend-grid">
-<article class="trend-card">
-<figure>
-<img alt="Clase de hidroaeróbicos en piscina" loading="lazy" src="https://source.unsplash.com/featured/900x600/?water,aerobics,pool&amp;sig=36"/>
-<figcaption>Hidroaeróbicos: movimiento con flotación y menor impacto.</figcaption>
-</figure>
-<div class="trend-body">
-<div class="trend-head">
-<h4>Hidroaeróbicos</h4><span class="intensity low">Baja</span>
-</div>
-<div class="meta"><span>Agua</span><span>Nivel: principiante</span></div>
-<p>Ejercicio grupal en piscina que aprovecha flotación y resistencia del agua para
-                                    moverse con menor impacto.</p>
-<ul class="trend-list">
-<li><strong>Beneficios:</strong> movilidad, resistencia y menor carga articular.
-                                    </li>
-<li><strong>Trabaja:</strong> coordinación, resistencia, fuerza suave y equilibrio.
-                                    </li>
-<li><strong>Población:</strong> adultos mayores, rehabilitación y nivel general.
-                                    </li>
-<li><strong>Precauciones:</strong> vigilar temperatura, profundidad y acceso seguro.
-                                    </li>
-</ul>
-</div>
-</article>
-</div>
-</div></div><div class="page-label">Tendencias</div><div class="page-num">09-7</div></section><section class="page" id="seguridad">
-<div class="page-content">
-<p class="section-kicker">Guía rápida</p>
-<h2 class="section-title">Recomendaciones para una práctica segura</h2>
-<p class="section-subtitle">La calidad del entrenamiento no depende solo del esfuerzo. También exige
-                    preparación, control técnico, recuperación y decisiones responsables.</p>
-<div class="callout">
-<p style="margin:0;">El ACSM subraya que el ejercicio debe ajustarse a las necesidades, metas y
-                        capacidades iniciales de cada persona, y recomienda integrar calentamiento, vuelta a la calma,
-                        trabajo de fuerza, flexibilidad y ejercicio neuromotor dentro de programas equilibrados<span class="cite">[web:23][web:24]</span>.</p>
-</div>
-<div class="check-grid">
-<article class="check-card">
-<div class="check-mark">①</div>
-<h3>Calentamiento previo</h3>
-<p>Activa articulaciones, eleva la temperatura corporal y prepara el sistema neuromuscular antes
-                            de esfuerzos intensos.</p>
-</article>
-<article class="check-card">
-<div class="check-mark">②</div>
-<h3>Hidratación</h3>
-<p>Tomar agua antes, durante y después ayuda a sostener el rendimiento y la seguridad,
-                            especialmente en clima cálido.</p>
-</article>
-<article class="check-card">
-<div class="check-mark">③</div>
-<h3>Técnica correcta</h3>
-<p>Aprender el gesto antes de aumentar velocidad, carga o complejidad reduce errores y
-                            molestias.</p>
-</article>
-<article class="check-card">
-<div class="check-mark">④</div>
-<h3>Progresión gradual</h3>
-<p>Aumentar volumen e intensidad poco a poco favorece adaptación y disminuye riesgos por
-                            sobreuso.</p>
-</article>
-<article class="check-card">
-<div class="check-mark">⑤</div>
-<h3>Descanso y recuperación</h3>
-<p>Dormir bien, espaciar sesiones exigentes y alternar estímulos mejora la respuesta del cuerpo.
-                        </p>
-</article>
-<article class="check-card">
-<div class="check-mark">⑥</div>
-<h3>Ropa y calzado</h3>
-<p>Un vestuario cómodo y un calzado apropiado mejoran apoyo, estabilidad y libertad de
-                            movimiento.</p>
-</article>
-<article class="check-card">
-<div class="check-mark">⑦</div>
-<h3>Escuchar al cuerpo</h3>
-<p>Fatiga excesiva, mareo, dolor agudo o falta de aire fuera de lo normal son señales de
-                            detenerse y revisar.</p>
-</article>
-<article class="check-card">
-<div class="check-mark">⑧</div>
-<h3>Consulta profesional</h3>
-<p>Cuando existe lesión, embarazo, enfermedad crónica o reinicio después de mucho tiempo,
-                            conviene orientación especializada.</p>
-</article>
-</div>
-<figure class="figure" style="margin-top:1rem;">
-<img alt="Grupo realizando calentamiento antes del ejercicio" loading="lazy" src="https://source.unsplash.com/featured/1600x900/?warmup,fitness,group&amp;sig=37"/>
-<figcaption>Entrenar con preparación y técnica suele dar mejores resultados que improvisar
-                        intensidad.</figcaption>
-</figure>
-</div>
-<div class="page-label">Seguridad</div>
-<div class="page-num">10</div>
-</section></div></main>
-<!-- Footer removed -->
-<button aria-label="Volver arriba" class="back-top" id="backTop">↑</button>
-<script>
-        // Navegación responsive
-        const navToggle = document.getElementById('navToggle');
-        const navMenu = document.getElementById('navMenu');
-        const navLinks = [...document.querySelectorAll('.nav-menu a')];
+                            </div>
+                        </article>
+                        <article class="trend-card">
+                            <figure><img alt="Body Pump" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=400&q=70" />
+                            </figure>
+                            <div class="trend-body">
+                                <div class="trend-head">
+                                    <h4>Body Pump</h4><span class="intensity mid">Media</span>
+                                </div>
+                                <div class="trend-meta"><span>Fuerza</span></div>
+                                <p class="trend-p">Barra y discos ligeros con m&uacute;sica.</p>
+                            </div>
+                        </article>
+                        <article class="trend-card">
+                            <figure><img alt="GAP" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=400&q=70" />
+                            </figure>
+                            <div class="trend-body">
+                                <div class="trend-head">
+                                    <h4>GAP</h4><span class="intensity mid">Media</span>
+                                </div>
+                                <div class="trend-meta"><span>Fuerza</span></div>
+                                <p class="trend-p">Gl&uacute;teos, abdomen y piernas. Tono y estabilidad.</p>
+                            </div>
+                        </article>
+                        <article class="trend-card">
+                            <figure><img alt="Zumba" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=400&q=70" />
+                            </figure>
+                            <div class="trend-body">
+                                <div class="trend-head">
+                                    <h4>Zumba</h4><span class="intensity mid">Media</span>
+                                </div>
+                                <div class="trend-meta"><span>Baile</span></div>
+                                <p class="trend-p">Ritmos latinos. Adherencia y cardio.</p>
+                            </div>
+                        </article>
+                        <article class="trend-card">
+                            <figure><img alt="Aerobicos" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1485727749690-d091e8284ef3?w=400&q=70" />
+                            </figure>
+                            <div class="trend-body">
+                                <div class="trend-head">
+                                    <h4>Aer&oacute;bicos</h4><span class="intensity mid">Media</span>
+                                </div>
+                                <div class="trend-meta"><span>Cardio</span></div>
+                                <p class="trend-p">Secuencias continuas. Resistencia y coordinaci&oacute;n.</p>
+                            </div>
+                        </article>
+                        <article class="trend-card">
+                            <figure><img alt="Body Combat" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?w=400&q=70" />
+                            </figure>
+                            <div class="trend-body">
+                                <div class="trend-head">
+                                    <h4>Body Combat</h4><span class="intensity high">Alta</span>
+                                </div>
+                                <div class="trend-meta"><span>Combate</span></div>
+                                <p class="trend-p">Golpes y patadas sin contacto. Energ&iacute;a y desestr&eacute;s.</p>
+                            </div>
+                        </article>
+                        <article class="trend-card">
+                            <figure><img alt="Kick Boxing" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=400&q=70" />
+                            </figure>
+                            <div class="trend-body">
+                                <div class="trend-head">
+                                    <h4>Kick Boxing</h4><span class="intensity high">Alta</span>
+                                </div>
+                                <div class="trend-meta"><span>Combate</span></div>
+                                <p class="trend-p">T&eacute;cnica, autoconfianza y precisi&oacute;n.</p>
+                            </div>
+                        </article>
+                        <article class="trend-card">
+                            <figure><img alt="HIIT" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?w=400&q=70" />
+                            </figure>
+                            <div class="trend-body">
+                                <div class="trend-head">
+                                    <h4>HIIT</h4><span class="intensity high">Alta</span>
+                                </div>
+                                <div class="trend-meta"><span>Intensidad</span></div>
+                                <p class="trend-p">Intervalos intensos con pausas. M&aacute;ximo cardio.</p>
+                            </div>
+                        </article>
+                        <article class="trend-card">
+                            <figure><img alt="CrossFit" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=400&q=70" />
+                            </figure>
+                            <div class="trend-body">
+                                <div class="trend-head">
+                                    <h4>CrossFit</h4><span class="intensity high">Alta</span>
+                                </div>
+                                <div class="trend-meta"><span>Funcional</span></div>
+                                <p class="trend-p">Levantamientos, gimnasia y cardio integrados.</p>
+                            </div>
+                        </article>
+                        <article class="trend-card">
+                            <figure><img alt="Spinning" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1519505907962-0a6cb0167c73?w=400&q=70" />
+                            </figure>
+                            <div class="trend-body">
+                                <div class="trend-head">
+                                    <h4>Spinning</h4><span class="intensity high">Alta</span>
+                                </div>
+                                <div class="trend-meta"><span>Cardio</span></div>
+                                <p class="trend-p">Bicicleta est&aacute;tica. Resistencia cardiovascular guiada.</p>
+                            </div>
+                        </article>
+                        <article class="trend-card">
+                            <figure><img alt="Taichi" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=70" />
+                            </figure>
+                            <div class="trend-body">
+                                <div class="trend-head">
+                                    <h4>Taich&iacute;</h4><span class="intensity low">Baja</span>
+                                </div>
+                                <div class="trend-meta"><span>Mente-cuerpo</span></div>
+                                <p class="trend-p">Movimientos suaves para control y calma.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="alert-box" style="flex-shrink:0;font-size:.66rem;margin-top:.05rem;">
+                        <strong>&#9888;</strong> Alta intensidad exige progresi&oacute;n, t&eacute;cnica y
+                        supervisi&oacute;n. Consultar profesional ante lesi&oacute;n, embarazo o enfermedad
+                        cr&oacute;nica.
+                    </div>
+                </div>
+                <div class="pg-label">Tendencias</div>
+                <div class="pg-num">06</div>
+            </section>
 
-        if (navToggle && navMenu) {
-            navToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('open');
-            });
+            <!-- PAG 07: EDITORIAL VISUAL -->
+            <section class="page" id="tendencias-2" style="position:relative;overflow:hidden;">
+                <img alt="Personas entrenando juntas" loading="lazy"
+                    src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=1200&q=85"
+                    style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" />
+                <div
+                    style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(3,8,14,.1) 0%,rgba(3,8,14,.5) 40%,rgba(3,8,14,.97) 100%);z-index:1;">
+                </div>
+                <div
+                    style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:1.7rem 1.9rem 2.3rem;">
+                    <div style="max-width:52ch;">
+                        <p
+                            style="text-transform:uppercase;letter-spacing:.22em;color:#ffd23f;font-weight:800;font-size:.66rem;margin-bottom:.4rem;">
+                            Reflexi&oacute;n editorial</p>
+                        <h2
+                            style="font-family:'Outfit',sans-serif;font-weight:900;font-size:clamp(1.8rem,4.5vw,3.5rem);line-height:.92;letter-spacing:-.05em;margin-bottom:.7rem;">
+                            El movimiento<br><span style="color:#ffd23f;">es para todos.</span></h2>
+                        <p style="color:#cdd9e8;font-size:.86rem;line-height:1.52;margin-bottom:.95rem;">No existe una
+                            sola forma de moverse. Las tendencias deportivas son herramientas, no obligaciones. Lo
+                            importante es encontrar la actividad que motive y que sea adecuada para cada cuerpo y
+                            momento de la vida.</p>
+                        <div style="display:flex;gap:.55rem;flex-wrap:wrap;margin-bottom:1.1rem;">
+                            <div
+                                style="padding:.45rem .85rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:999px;font-size:.72rem;font-weight:700;color:#eef3f8;">
+                                16 disciplinas</div>
+                            <div
+                                style="padding:.45rem .85rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:999px;font-size:.72rem;font-weight:700;color:#eef3f8;">
+                                3 niveles de intensidad</div>
+                            <div
+                                style="padding:.45rem .85rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:999px;font-size:.72rem;font-weight:700;color:#eef3f8;">
+                                Para todos los perfiles</div>
+                        </div>
+                        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.38rem;">
+                            <figure style="border-radius:9px;overflow:hidden;border:1px solid rgba(255,255,255,.12);">
+                                <img alt="Natacion" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=200&q=65"
+                                    style="width:100%;height:50px;object-fit:cover;" />
+                            </figure>
+                            <figure style="border-radius:9px;overflow:hidden;border:1px solid rgba(255,255,255,.12);">
+                                <img alt="Atletismo" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=200&q=65"
+                                    style="width:100%;height:50px;object-fit:cover;" />
+                            </figure>
+                            <figure style="border-radius:9px;overflow:hidden;border:1px solid rgba(255,255,255,.12);">
+                                <img alt="Ciclismo" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=200&q=65"
+                                    style="width:100%;height:50px;object-fit:cover;" />
+                            </figure>
+                            <figure style="border-radius:9px;overflow:hidden;border:1px solid rgba(255,255,255,.12);">
+                                <img alt="Baloncesto" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=200&q=65"
+                                    style="width:100%;height:50px;object-fit:cover;" />
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="pg-label" style="color:rgba(255,255,255,.45);">Editorial visual</div>
+                <div class="pg-num" style="color:rgba(255,255,255,.45);">07</div>
+            </section>
 
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => navMenu.classList.remove('open'));
-            });
-        }
+            <!-- PAG 08: SEGURIDAD + CIERRE -->
+            <section class="page" id="seguridad">
+                <div class="pc">
+                    <div
+                        style="display:grid;grid-template-columns:1fr auto;gap:.6rem;align-items:center;flex-shrink:0;">
+                        <div>
+                            <p class="kicker">Gu&iacute;a r&aacute;pida &middot; Cierre editorial</p>
+                            <h2 class="ttl" style="font-size:clamp(1.2rem,2.6vw,2rem);">Pr&aacute;ctica segura</h2>
+                            <p class="sub" style="font-size:.7rem;">8 recomendaciones antes, durante y despu&eacute;s
+                                del ejercicio.</p>
+                        </div>
+                        <figure class="fig" style="width:115px;">
+                            <img alt="Calentamiento antes del ejercicio" loading="lazy"
+                                src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&q=75"
+                                style="height:78px;" />
+                        </figure>
+                    </div>
+                    <div class="g2" style="flex:1;align-items:start;">
+                        <div style="display:flex;flex-direction:column;gap:.45rem;">
+                            <div class="check-grid">
+                                <article class="check-card">
+                                    <div class="check-mark">&#9312;</div>
+                                    <h3>Calentamiento</h3>
+                                    <p>Activa articulaciones y sistema neuromuscular.</p>
+                                </article>
+                                <article class="check-card">
+                                    <div class="check-mark">&#9313;</div>
+                                    <h3>Hidrataci&oacute;n</h3>
+                                    <p>Agua antes, durante y despu&eacute;s.</p>
+                                </article>
+                                <article class="check-card">
+                                    <div class="check-mark">&#9314;</div>
+                                    <h3>T&eacute;cnica correcta</h3>
+                                    <p>Aprender el gesto antes de aumentar carga.</p>
+                                </article>
+                                <article class="check-card">
+                                    <div class="check-mark">&#9315;</div>
+                                    <h3>Progresi&oacute;n</h3>
+                                    <p>Aumentar volumen e intensidad poco a poco.</p>
+                                </article>
+                                <article class="check-card">
+                                    <div class="check-mark">&#9316;</div>
+                                    <h3>Descanso</h3>
+                                    <p>Espaciar sesiones exigentes. Dormir bien.</p>
+                                </article>
+                                <article class="check-card">
+                                    <div class="check-mark">&#9317;</div>
+                                    <h3>Indumentaria</h3>
+                                    <p>Ropa y calzado adecuados para cada actividad.</p>
+                                </article>
+                                <article class="check-card">
+                                    <div class="check-mark">&#9318;</div>
+                                    <h3>Escuchar el cuerpo</h3>
+                                    <p>Fatiga, mareo o dolor agudo: detenerse.</p>
+                                </article>
+                                <article class="check-card">
+                                    <div class="check-mark">&#9319;</div>
+                                    <h3>Asesor&iacute;a profesional</h3>
+                                    <p>Ante lesi&oacute;n, embarazo o enfermedad cr&oacute;nica.</p>
+                                </article>
+                            </div>
+                            <div class="callout" style="font-size:.7rem;">El <strong>ACSM</strong> recomienda integrar
+                                calentamiento, fuerza, flexibilidad y ejercicio neuromotor ajustados a cada persona.
+                            </div>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:.5rem;height:100%;">
+                            <figure class="fig" style="flex:1;">
+                                <img alt="Grupo haciendo ejercicio al aire libre" loading="lazy"
+                                    src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=75"
+                                    style="height:100%;max-height:190px;" />
+                                <figcaption>Entrenar con t&eacute;cnica y preparaci&oacute;n da mejores resultados.
+                                </figcaption>
+                            </figure>
+                            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.32rem;flex-shrink:0;">
+                                <figure style="border-radius:7px;overflow:hidden;border:1px solid var(--line);"><img
+                                        alt="Yoga" loading="lazy"
+                                        src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&q=65"
+                                        style="width:100%;height:42px;object-fit:cover;" /></figure>
+                                <figure style="border-radius:7px;overflow:hidden;border:1px solid var(--line);"><img
+                                        alt="Ciclismo" loading="lazy"
+                                        src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=200&q=65"
+                                        style="width:100%;height:42px;object-fit:cover;" /></figure>
+                                <figure style="border-radius:7px;overflow:hidden;border:1px solid var(--line);"><img
+                                        alt="Natacion" loading="lazy"
+                                        src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=200&q=65"
+                                        style="width:100%;height:42px;object-fit:cover;" /></figure>
+                            </div>
+                            <div class="quote-box" style="font-size:.76rem;flex-shrink:0;">&ldquo;La calidad del
+                                entrenamiento exige preparaci&oacute;n, control t&eacute;cnico y decisiones
+                                responsables.&rdquo;</div>
+                            <div
+                                style="padding:.6rem;background:rgba(255,255,255,.04);border-radius:11px;border:1px solid var(--line);font-size:.67rem;flex-shrink:0;">
+                                <div
+                                    style="color:#ffd23f;font-weight:800;letter-spacing:.1em;font-size:.62rem;text-transform:uppercase;margin-bottom:.3rem;">
+                                    &#128218; Referencias</div>
+                                <ul class="mini-list" style="gap:.22rem;">
+                                    <li>UNESCO &mdash; Educaci&oacute;n F&iacute;sica de Calidad (EFC)</li>
+                                    <li>OMS &mdash; Directrices 2020 sobre actividad f&iacute;sica</li>
+                                    <li>ACSM &mdash; Position Stand: Exercise Prescription (2022)</li>
+                                    <li>Ruiz P&eacute;rez, L.M. (2004) &mdash; Competencia motriz</li>
+                                </ul>
+                            </div>
+                            <div
+                                style="display:flex;justify-content:space-between;align-items:center;padding-top:.35rem;border-top:1px solid var(--line);flex-shrink:0;">
+                                <div
+                                    style="font-size:.61rem;color:#8fa3ba;letter-spacing:.1em;text-transform:uppercase;">
+                                    Movimiento en Acci&oacute;n &middot; Educaci&oacute;n F&iacute;sica</div>
+                                <div style="font-size:.61rem;color:#8fa3ba;">Medellín, Colombia 2026</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pg-label">Seguridad &middot; Cierre</div>
+                <div class="pg-num">08</div>
+            </section>
 
-        // Indicador de progreso
-        const progressBar = document.getElementById('progressBar');
-        const backTop = document.getElementById('backTop');
+        </div>
 
-        function updateProgress() {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-            progressBar.style.width = progress + '%';
+        <div class="flip-controls">
+            <button class="flip-btn" id="btnPrev" title="P&aacute;gina anterior">&#8249;</button>
+            <span class="flip-page-info" id="pageInfo">P&aacute;gina 1 de 8</span>
+            <button class="flip-btn" id="btnNext" title="P&aacute;gina siguiente">&#8250;</button>
+        </div>
+    </div>
 
-            if (scrollTop > 500) {
-                backTop.classList.add('show');
-            } else {
-                backTop.classList.remove('show');
-            }
-        }
+    <button aria-label="Volver al inicio" class="back-top" id="backTop">&#8593;</button>
 
-        window.addEventListener('scroll', updateProgress);
-        window.addEventListener('load', updateProgress);
-
-        // Volver arriba
-        backTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Modo claro / oscuro
-        const themeToggle = document.getElementById('themeToggle');
-        const savedTheme = localStorage.getItem('mea-theme');
-        if (savedTheme === 'light') document.body.classList.add('light');
-
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                document.body.classList.toggle('light');
-                localStorage.setItem('mea-theme', document.body.classList.contains('light') ? 'light' : 'dark');
-            });
-        }
-
-        // Botón imprimir
-        const printBtn = document.getElementById('printBtn');
-        if (printBtn) {
-            printBtn.addEventListener('click', () => {
-                window.print();
-            });
-        }
-
-        // Animación al aparecer
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { rootMargin: '0px 0px -50px 0px', threshold: 0 });
-
-        reveals.forEach(el => observer.observe(el));
-
-        // Resaltar sección activa
-        const sections = [...document.querySelectorAll('main section[id]')];
-        const navMap = new Map(navLinks.map(link => [link.getAttribute('href').slice(1), link]));
-
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    const active = navMap.get(entry.target.id);
-                    if (active) active.classList.add('active');
-                }
-            });
-        }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
-
-        sections.forEach(sec => sectionObserver.observe(sec));
-    
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const pageFlip = new St.PageFlip(document.getElementById('flipbook'), {
-                width: 550, // base width
-                height: 733, // base height
-                size: "stretch",
-                minWidth: 315,
-                maxWidth: 1000,
-                minHeight: 420,
-                maxHeight: 1350,
-                maxShadowOpacity: 0.5,
-                showCover: true,
-                mobileScrollSupport: false
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var pageFlip = new St.PageFlip(document.getElementById('flipbook'), {
+                width: 550, height: 733, size: 'stretch',
+                minWidth: 280, maxWidth: 900, minHeight: 380, maxHeight: 1200,
+                maxShadowOpacity: 0.5, showCover: true, mobileScrollSupport: false,
+                autoSize: true, usePortrait: true, startPage: 0
             });
             pageFlip.loadFromHTML(document.querySelectorAll('.page'));
-            
-            // Update nav links to turn pages
-            document.querySelectorAll('nav a').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    const targetId = link.getAttribute('href').substring(1);
-                    const targetPage = document.getElementById(targetId);
-                    if (targetPage) {
-                        e.preventDefault();
-                        const pageNodes = Array.from(document.querySelectorAll('.page'));
-                        const pageIndex = pageNodes.indexOf(targetPage);
-                        if (pageIndex !== -1) {
-                            pageFlip.turnToPage(pageIndex);
-                        }
-                    }
+            var totalPages = document.querySelectorAll('.page').length;
+            var pageInfo = document.getElementById('pageInfo');
+            function updateInfo() {
+                pageInfo.textContent = 'P\u00e1gina ' + (pageFlip.getCurrentPageIndex() + 1) + ' de ' + totalPages;
+            }
+            pageFlip.on('flip', updateInfo);
+            updateInfo();
+            document.getElementById('btnPrev').addEventListener('click', function () { pageFlip.flipPrev(); });
+            document.getElementById('btnNext').addEventListener('click', function () { pageFlip.flipNext(); });
+            document.getElementById('btnExplore').addEventListener('click', function () { pageFlip.turnToPage(2); });
+            document.getElementById('btnSumario').addEventListener('click', function () { pageFlip.turnToPage(1); });
+            var themeToggle = document.getElementById('themeToggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function () {
+                    document.body.classList.toggle('light');
+                    themeToggle.textContent = document.body.classList.contains('light') ? '\uD83C\uDF19' : '\u2600';
+                    localStorage.setItem('mea-theme', document.body.classList.contains('light') ? 'light' : 'dark');
                 });
+            }
+            var printBtn = document.getElementById('printBtn');
+            if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
+            var backTop = document.getElementById('backTop');
+            if (backTop) {
+                backTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+                window.addEventListener('scroll', function () { backTop.classList.toggle('show', window.scrollY > 300); });
+            }
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') pageFlip.flipNext();
+                if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') pageFlip.flipPrev();
             });
         });
     </script>
 </body>
+
 </html>
