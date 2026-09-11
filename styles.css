@@ -496,7 +496,7 @@ button {
 
 .stage-fig img {
     width: 100%;
-    height: 200px;
+    height: 92px;
     object-fit: cover;
     display: block;
 }
@@ -522,7 +522,7 @@ button {
 }
 
 .stage-card--wide .stage-fig img {
-    height: 250px;
+    height: 140px;
 }
 
 .mini-list {
