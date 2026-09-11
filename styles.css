@@ -469,11 +469,13 @@ button {
 
 .stage-card {
     position: relative;
-    padding: .55rem .7rem .55rem .95rem;
+    padding: 0;
     border-radius: 11px;
-    background: rgba(255, 255, 255, .04);
+    background: rgba(255, 255, 255, .03);
     border: 1px solid var(--line);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .stage-card::before {
@@ -484,6 +486,26 @@ button {
     bottom: 0;
     width: 3px;
     background: linear-gradient(180deg, var(--yellow), var(--orange));
+    z-index: 1;
+}
+
+.stage-fig {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.stage-fig img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.stage-body {
+    padding: .45rem .7rem .5rem .95rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .stage-card h3 {
@@ -497,6 +519,10 @@ button {
     color: var(--orange);
     font-weight: 700;
     margin-bottom: .22rem;
+}
+
+.stage-card--wide .stage-fig img {
+    height: 250px;
 }
 
 .mini-list {
