@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -24,33 +24,42 @@
             <!-- PAG 01: PORTADA -->
             <section class="page hero-page" id="portada">
                 <div class="pc pc--cover">
-                    <div class="g-hero">
-                        <div class="hero-copy">
-                            <div class="eyebrow">&#9889; Educaci&oacute;n F&iacute;sica &middot; Revista digital</div>
-                            <h1 class="hero-ttl">MOVIMIENTO<br><span>EN ACCI&Oacute;N</span></h1>
-                            <p class="hero-p">Desarrollo humano, capacidades f&iacute;sicas y tendencias deportivas para
-                                una vida activa.</p>
-                            <blockquote class="hero-quote">&ldquo;El cuerpo aprende, se adapta y se expresa a
-                                trav&eacute;s del movimiento.&rdquo;</blockquote>
+
+                    <!-- Masthead (centrado) -->
+                    <header class="cover-mast">
+                        <h1 class="mast-name">MOVIMIENTO<br><span>EN&nbsp;ACCI&Oacute;N</span></h1>
+                    </header>
+
+                    <!-- Cover lines distribuidas izq / der -->
+                    <div class="cover-lines">
+                        <div class="cover-line cover-line--left">
+                            <strong>HABILIDADES<br>MOTRICES</strong>
+                            <span>El cuerpo que aprende y se expresa</span>
                         </div>
-                        <div class="cover-meta">
-                            <div class="meta-title">&#128203; Datos de portada</div>
-                            <div class="meta-row"><strong>Elaborado por:</strong><br><span class="editable"
-                                    contenteditable="true">Alexander Castaño</span></div>
-                            <span class="editable" contenteditable="true">Josue Valencia</span>
-                            <div class="meta-row meta-row--inst">
-                                <strong>Instituci&oacute;n:</strong><br><span class="editable"
-                                    contenteditable="true">SENA</span>
-                            </div>
-                            <div class="meta-row meta-row--doc"><strong>Docente:</strong><br><span class="editable"
-                                    contenteditable="true">Jackson Mosquera</span></div>
-                            <div class="meta-row meta-row--date"><strong>Fecha:</strong><br><span class="editable"
-                                    contenteditable="true">Medellín, Colombia &mdash; 2026</span></div>
+                        <div class="cover-line cover-line--right">
+                            <strong>CAPACIDADES<br>COORDINATIVAS</strong>
+                            <span>La base del rendimiento</span>
+                        </div>
+                        <div class="cover-line cover-line--left">
+                            <strong>ETAPAS DEL<br>DESARROLLO</strong>
+                            <span>Una forma de moverse por cada fase de la vida</span>
+                        </div>
+                        <div class="cover-line cover-line--right">
+                            <strong>TENDENCIAS<br>DEPORTIVAS</strong>
+                            <span>16 disciplinas para encontrar la tuya</span>
+                        </div>
+                        <div class="cover-line cover-line--left">
+                            <strong>CAPACIDADES<br>F&Iacute;SICAS</strong>
+                            <span>Resistencia, fuerza, velocidad y flexibilidad</span>
                         </div>
                     </div>
+
+                    <!-- Dateline al pie -->
+                    <div class="cover-topline">
+                        <p class="cover-date">Medell&iacute;n, Colombia &mdash; 2026 <i>|</i> Edici&oacute;n 01 <i>|</i>
+                            SENA</p>
+                    </div>
                 </div>
-                <div class="pg-label">Portada</div>
-                <div class="pg-num">01</div>
             </section>
             <!-- PAG 02: INDICE -->
             <section class="page" id="indice">
@@ -131,8 +140,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="pg-label">&Iacute;ndice</div>
-                <div class="pg-num">02</div>
             </section>
 
             <!-- PAG 03: EDITORIAL -->
@@ -274,10 +281,8 @@
 
                     <figure class="tl-fig">
                         <img alt="Etapas del desarrollo humano" loading="lazy" src="desarrollo-humano-trans.png" />
-                        <figcaption>El desarrollo humano: cada etapa prepara la siguiente</figcaption>
                     </figure>
                 </div>
-                <div class="pg-label">Desarrollo</div>
                 <div class="pg-num">04</div>
             </section>
 
@@ -291,18 +296,22 @@
                             significado.</p>
                     </div>
 
-                    <div class="g2 no-shrink">
-                        <article class="motriz-card">
-                            <figure class="fig"><img alt="Motricidad fina: precisi&oacute;n con dedos y pies"
-                                    loading="lazy" src="img/fina.png" /></figure>
-                            <h3>Motricidad fina</h3>
+                    <div class="g2 no-shrink hab-fill">
+                        <article class="hab-card" style="--c:#ffd23f">
+                            <figure class="hab-fig">
+                                <img alt="Motricidad fina: precisi&oacute;n con dedos y pies" loading="lazy"
+                                    src="img/fina.png" />
+                                <figcaption>Motricidad fina</figcaption>
+                            </figure>
                             <p>Manipular con precisi&oacute;n usando peque&ntilde;os grupos musculares (dedos).</p>
                             <div class="chip">&Oacute;culo-manual &middot; &Oacute;culo-p&eacute;dica</div>
                         </article>
-                        <article class="motriz-card">
-                            <figure class="fig"><img alt="Motricidad gruesa: el cuerpo en su totalidad" loading="lazy"
-                                    src="img/gruesa.png" /></figure>
-                            <h3>Motricidad gruesa</h3>
+                        <article class="hab-card" style="--c:#ffd23f">
+                            <figure class="hab-fig">
+                                <img alt="Motricidad gruesa: el cuerpo en su totalidad" loading="lazy"
+                                    src="img/gruesa.png" />
+                                <figcaption>Motricidad gruesa</figcaption>
+                            </figure>
                             <p>El cuerpo como totalidad: gatear, caminar, saltar.</p>
                             <div class="chip">Control motor &middot; Ajuste postural</div>
                         </article>
@@ -367,7 +376,6 @@
                         </article>
                     </div>
                 </div>
-                <div class="pg-label">Motricidad</div>
                 <div class="pg-num">05</div>
             </section>
 
@@ -380,46 +388,46 @@
                         rendimiento</h2>
                     <div class="g4 no-shrink">
                         <div class="coord-card">
-                            <h4>&#9878; Equilibrio</h4>
+                            <h4>Equilibrio</h4>
                             <p>Mantener o recuperar estabilidad.</p>
                             <div class="chip">L&iacute;nea &middot; Patinaje</div>
                         </div>
                         <div class="coord-card">
-                            <h4>&#128506; Orientaci&oacute;n</h4>
+                            <h4>Orientaci&oacute;n</h4>
                             <p>Ubicarse en espacio y tiempo.</p>
                             <div class="chip">Circuitos</div>
                         </div>
                         <div class="coord-card">
-                            <h4>&#127925; Ritmo</h4>
+                            <h4>Ritmo</h4>
                             <p>Organizar movimientos en secuencia.</p>
                             <div class="chip">M&uacute;sica &middot; Danza</div>
                         </div>
                         <div class="coord-card">
-                            <h4>&#9889; Reacci&oacute;n</h4>
+                            <h4>Reacci&oacute;n</h4>
                             <p>Responder r&aacute;pido ante
                                 est&iacute;mulos.</p>
                             <div class="chip">Salidas &middot; Sprints</div>
                         </div>
                         <div class="coord-card">
-                            <h4>&#128279; Acoplamiento</h4>
+                            <h4>Acoplamiento</h4>
                             <p>Integrar movimientos en acci&oacute;n
                                 global.</p>
                             <div class="chip">Nadar &middot; Saltar</div>
                         </div>
                         <div class="coord-card">
-                            <h4>&#127919; &Oacute;culo-manual</h4>
+                            <h4>&Oacute;culo-manual</h4>
                             <p>Visi&oacute;n + ejecuci&oacute;n con manos o
                                 pies.</p>
                             <div class="chip">Pases &middot; Punter&iacute;a</div>
                         </div>
                         <div class="coord-card">
-                            <h4>&#128208; Diferenciaci&oacute;n</h4>
+                            <h4>Diferenciaci&oacute;n</h4>
                             <p>Ajustar fuerza y precisi&oacute;n del gesto.
                             </p>
                             <div class="chip">Lanzar a distancias</div>
                         </div>
                         <div class="coord-card">
-                            <h4>&#128260; Adaptaci&oacute;n</h4>
+                            <h4>Adaptaci&oacute;n</h4>
                             <p>Modificar respuesta ante cambios del
                                 entorno.</p>
                             <div class="chip">Mini-partidos</div>
@@ -430,43 +438,37 @@
 
                     <!-- Capacidades físicas condicionales -->
                     <p class="kicker no-shrink">Capacidades f&iacute;sicas condicionales</p>
-                    <div class="g2x2">
-                        <article class="phys-card">
-                            <figure class="fig"><img alt="Corriendo resistencia" loading="lazy"
+                    <div class="g2x2 no-shrink hab-fill">
+                        <article class="hab-card" style="--c:#ff4d5a">
+                            <figure class="hab-fig">
+                                <img alt="Corriendo resistencia" loading="lazy"
                                     src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=400&q=70" />
+                                <figcaption>&#10084; Resistencia</figcaption>
                             </figure>
-                            <div class="phys-header">
-                                <div class="ring">&#10084;</div>
-                                <h3>Resistencia</h3>
-                            </div>
                             <p>Sostener esfuerzo sin fatiga excesiva.</p>
                             <ul class="mini-list">
                                 <li><strong>Anaer&oacute;bica:</strong> Al&aacute;ctica y L&aacute;ctica.</li>
                                 <li><strong>Aer&oacute;bica:</strong> esfuerzos prolongados.</li>
                             </ul>
                         </article>
-                        <article class="phys-card">
-                            <figure class="fig"><img alt="Flexibilidad estiramiento" loading="lazy"
+                        <article class="hab-card" style="--c:#3dffc0">
+                            <figure class="hab-fig">
+                                <img alt="Flexibilidad estiramiento" loading="lazy"
                                     src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&q=70" />
+                                <figcaption>&#129336; Flexibilidad</figcaption>
                             </figure>
-                            <div class="phys-header">
-                                <div class="ring">&#129336;</div>
-                                <h3>Flexibilidad</h3>
-                            </div>
                             <p>Amplitud de movimiento en tejidos blandos.</p>
                             <ul class="mini-list">
                                 <li><strong>Est&aacute;tica:</strong> posturas mantenidas.</li>
                                 <li><strong>Din&aacute;mica:</strong> en movimiento.</li>
                             </ul>
                         </article>
-                        <article class="phys-card">
-                            <figure class="fig"><img alt="Sprint velocidad" loading="lazy"
+                        <article class="hab-card" style="--c:#ffd23f">
+                            <figure class="hab-fig">
+                                <img alt="Sprint velocidad" loading="lazy"
                                     src="https://images.unsplash.com/photo-1483721310020-03333e577078?w=400&q=70" />
+                                <figcaption>&#9889; Velocidad</figcaption>
                             </figure>
-                            <div class="phys-header">
-                                <div class="ring">&#9889;</div>
-                                <h3>Velocidad</h3>
-                            </div>
                             <p>Acciones motrices en el menor tiempo.</p>
                             <ul class="mini-list">
                                 <li><strong>Potencia:</strong> m&aacute;xima en m&iacute;nimo tiempo.</li>
@@ -475,14 +477,12 @@
                                 <li><strong>Reacci&oacute;n:</strong> respuesta ante est&iacute;mulos.</li>
                             </ul>
                         </article>
-                        <article class="phys-card">
-                            <figure class="fig"><img alt="Fuerza ejercicio" loading="lazy"
+                        <article class="hab-card" style="--c:#ff8a3d">
+                            <figure class="hab-fig">
+                                <img alt="Fuerza ejercicio" loading="lazy"
                                     src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=400&q=70" />
+                                <figcaption>&#128170; Fuerza</figcaption>
                             </figure>
-                            <div class="phys-header">
-                                <div class="ring">&#128170;</div>
-                                <h3>Fuerza</h3>
-                            </div>
                             <p>Generar tensi&oacute;n muscular para mover o resistir.</p>
                             <ul class="mini-list">
                                 <li><strong>Seg&uacute;n contracci&oacute;n:</strong> Conc&eacute;ntrica,
@@ -497,7 +497,6 @@
                         programas equilibrados: trabajo aer&oacute;bico, resistencia muscular, flexibilidad y ejercicios
                         neuromotores.</div> -->
                 </div>
-                <div class="pg-label">Capacidades</div>
                 <div class="pg-num">06</div>
             </section>
 
@@ -516,199 +515,166 @@
                                 Media</span> &nbsp;<span class="dot-high">&#9679;
                                 Alta intensidad</span></p>
                     </div>
-                    <div class="g4x4">
-                        <article class="trend-card">
-                            <figure><img alt="Yoga" loading="lazy"
+                    <div class="g4x4 no-shrink hab-fill">
+                        <article class="hab-card" style="--c:#3dffc0">
+                            <figure class="hab-fig">
+                                <img alt="Yoga" loading="lazy"
                                     src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=70" />
+                                <span class="hab-tag">Baja</span>
+                                <figcaption>Yoga</figcaption>
                             </figure>
-                            <div class="trend-body">
-                                <div class="trend-head">
-                                    <h4>Yoga</h4><span class="intensity low">Baja</span>
-                                </div>
-                                <div class="trend-meta"><span>Mente-cuerpo</span></div>
-                                <p class="trend-p">Posturas, respiraci&oacute;n y bienestar f&iacute;sico-mental.</p>
-                            </div>
+                            <p>Posturas, respiraci&oacute;n y bienestar f&iacute;sico-mental.</p>
+                            <div class="chip">Mente-cuerpo</div>
                         </article>
-                        <article class="trend-card">
-                            <figure><img alt="Pilates" loading="lazy"
+                        <article class="hab-card" style="--c:#3dffc0">
+                            <figure class="hab-fig">
+                                <img alt="Pilates" loading="lazy"
                                     src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=70" />
+                                <span class="hab-tag">Baja</span>
+                                <figcaption>Pilates</figcaption>
                             </figure>
-                            <div class="trend-body">
-                                <div class="trend-head">
-                                    <h4>Pilates</h4><span class="intensity low">Baja</span>
-                                </div>
-                                <div class="trend-meta"><span>Fuerza</span></div>
-                                <p class="trend-p">Control del centro corporal, postura y estabilidad.</p>
-                            </div>
+                            <p>Control del centro corporal, postura y estabilidad.</p>
+                            <div class="chip">Fuerza</div>
                         </article>
-                        <article class="trend-card">
-                            <figure><img alt="Stretching" loading="lazy"
+                        <article class="hab-card" style="--c:#3dffc0">
+                            <figure class="hab-fig">
+                                <img alt="Stretching" loading="lazy"
                                     src="https://images.unsplash.com/photo-1593164842264-854604db2260?w=400&q=70" />
+                                <span class="hab-tag">Baja</span>
+                                <figcaption>Stretching</figcaption>
                             </figure>
-                            <div class="trend-body">
-                                <div class="trend-head">
-                                    <h4>Stretching</h4><span class="intensity low">Baja</span>
-                                </div>
-                                <div class="trend-meta"><span>Movilidad</span></div>
-                                <p class="trend-p">Estiramientos para amplitud de movimiento.</p>
-                            </div>
+                            <p>Estiramientos para amplitud de movimiento.</p>
+                            <div class="chip">Movilidad</div>
                         </article>
-                        <article class="trend-card">
-                            <figure><img alt="Hidroaerobicos" loading="lazy"
+                        <article class="hab-card" style="--c:#3dffc0">
+                            <figure class="hab-fig">
+                                <img alt="Hidroaerobicos" loading="lazy"
                                     src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&q=70" />
+                                <span class="hab-tag">Baja</span>
+                                <figcaption>Hidroaer&oacute;bicos</figcaption>
                             </figure>
-                            <div class="trend-body">
-                                <div class="trend-head">
-                                    <h4>Hidroaer&oacute;bicos</h4><span class="intensity low">Baja</span>
-                                </div>
-                                <div class="trend-meta"><span>Agua</span></div>
-                                <p class="trend-p">Bajo impacto articular, alta resistencia.</p>
-                            </div>
+                            <p>Bajo impacto articular, alta resistencia.</p>
+                            <div class="chip">Agua</div>
                         </article>
-                        <article class="trend-card">
-                            <figure><img alt="Core" loading="lazy"
+                        <article class="hab-card" style="--c:#ffd23f">
+                            <figure class="hab-fig">
+                                <img alt="Core" loading="lazy"
                                     src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=400&q=70" />
+                                <span class="hab-tag">Media</span>
+                                <figcaption>Core</figcaption>
                             </figure>
-                            <div class="trend-body">
-                                <div class="trend-head">
-                                    <h4>Core</h4><span class="intensity mid">Media</span>
-                                </div>
-                                <div class="trend-meta"><span>Fuerza</span></div>
-                                <p class="trend-p">Abdomen, lumbar y pelvis. Estabilidad y postura.</p>
-                            </div>
+                            <p>Abdomen, lumbar y pelvis. Estabilidad y postura.</p>
+                            <div class="chip">Fuerza</div>
                         </article>
-                        <article class="trend-card">
-                            <figure><img alt="TRX" loading="lazy"
+                        <article class="hab-card" style="--c:#ffd23f">
+                            <figure class="hab-fig">
+                                <img alt="TRX" loading="lazy"
                                     src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=70" />
+                                <span class="hab-tag">Media</span>
+                                <figcaption>TRX</figcaption>
                             </figure>
-                            <div class="trend-body">
-                                <div class="trend-head">
-                                    <h4>TRX</h4><span class="intensity mid">Media</span>
-                                </div>
-                                <div class="trend-meta"><span>Funcional</span></div>
-                                <p class="trend-p">Suspensi&oacute;n con peso corporal. Fuerza y coordinaci&oacute;n.
-                                </p>
-                            </div>
+                            <p>Suspensi&oacute;n con peso corporal. Fuerza y coordinaci&oacute;n.</p>
+                            <div class="chip">Funcional</div>
                         </article>
-                        <article class="trend-card">
-                            <figure><img alt="Body Pump" loading="lazy"
+                        <article class="hab-card" style="--c:#ffd23f">
+                            <figure class="hab-fig">
+                                <img alt="Body Pump" loading="lazy"
                                     src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?w=400&q=70" />
+                                <span class="hab-tag">Media</span>
+                                <figcaption>Body Pump</figcaption>
                             </figure>
-                            <div class="trend-body">
-                                <div class="trend-head">
-                                    <h4>Body Pump</h4><span class="intensity mid">Media</span>
-                                </div>
-                                <div class="trend-meta"><span>Fuerza</span></div>
-                                <p class="trend-p">Barra y discos ligeros con m&uacute;sica.</p>
-                            </div>
+                            <p>Barra y discos ligeros con m&uacute;sica.</p>
+                            <div class="chip">Fuerza</div>
                         </article>
-                        <article class="trend-card">
-                            <figure><img alt="GAP" loading="lazy"
+                        <article class="hab-card" style="--c:#ffd23f">
+                            <figure class="hab-fig">
+                                <img alt="GAP" loading="lazy"
                                     src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=400&q=70" />
+                                <span class="hab-tag">Media</span>
+                                <figcaption>GAP</figcaption>
                             </figure>
-                            <div class="trend-body">
-                                <div class="trend-head">
-                                    <h4>GAP</h4><span class="intensity mid">Media</span>
-                                </div>
-                                <div class="trend-meta"><span>Fuerza</span></div>
-                                <p class="trend-p">Gl&uacute;teos, abdomen y piernas. Tono y estabilidad.</p>
-                            </div>
+                            <p>Gl&uacute;teos, abdomen y piernas. Tono y estabilidad.</p>
+                            <div class="chip">Fuerza</div>
                         </article>
-                        <article class="trend-card">
-                            <figure><img alt="Zumba" loading="lazy"
+                        <article class="hab-card" style="--c:#ffd23f">
+                            <figure class="hab-fig">
+                                <img alt="Zumba" loading="lazy"
                                     src="https://images.unsplash.com/photo-1547153760-18fc86324498?w=400&q=70" />
+                                <span class="hab-tag">Media</span>
+                                <figcaption>Zumba</figcaption>
                             </figure>
-                            <div class="trend-body">
-                                <div class="trend-head">
-                                    <h4>Zumba</h4><span class="intensity mid">Media</span>
-                                </div>
-                                <div class="trend-meta"><span>Baile</span></div>
-                                <p class="trend-p">Ritmos latinos. Adherencia y cardio.</p>
-                            </div>
+                            <p>Ritmos latinos. Adherencia y cardio.</p>
+                            <div class="chip">Baile</div>
                         </article>
-                        <article class="trend-card">
-                            <figure><img alt="Aerobicos" loading="lazy"
+                        <article class="hab-card" style="--c:#ffd23f">
+                            <figure class="hab-fig">
+                                <img alt="Aerobicos" loading="lazy"
                                     src="https://images.unsplash.com/photo-1485727749690-d091e8284ef3?w=400&q=70" />
+                                <span class="hab-tag">Media</span>
+                                <figcaption>Aer&oacute;bicos</figcaption>
                             </figure>
-                            <div class="trend-body">
-                                <div class="trend-head">
-                                    <h4>Aer&oacute;bicos</h4><span class="intensity mid">Media</span>
-                                </div>
-                                <div class="trend-meta"><span>Cardio</span></div>
-                                <p class="trend-p">Secuencias continuas. Resistencia y coordinaci&oacute;n.</p>
-                            </div>
+                            <p>Secuencias continuas. Resistencia y coordinaci&oacute;n.</p>
+                            <div class="chip">Cardio</div>
                         </article>
-                        <article class="trend-card">
-                            <figure><img alt="Body Combat" loading="lazy"
+                        <article class="hab-card" style="--c:#ff4d5a">
+                            <figure class="hab-fig">
+                                <img alt="Body Combat" loading="lazy"
                                     src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?w=400&q=70" />
+                                <span class="hab-tag">Alta</span>
+                                <figcaption>Body Combat</figcaption>
                             </figure>
-                            <div class="trend-body">
-                                <div class="trend-head">
-                                    <h4>Body Combat</h4><span class="intensity high">Alta</span>
-                                </div>
-                                <div class="trend-meta"><span>Combate</span></div>
-                                <p class="trend-p">Golpes y patadas sin contacto. Energ&iacute;a y desestr&eacute;s.</p>
-                            </div>
+                            <p>Golpes y patadas sin contacto. Energ&iacute;a y desestr&eacute;s.</p>
+                            <div class="chip">Combate</div>
                         </article>
-                        <article class="trend-card">
-                            <figure><img alt="Kick Boxing" loading="lazy"
+                        <article class="hab-card" style="--c:#ff4d5a">
+                            <figure class="hab-fig">
+                                <img alt="Kick Boxing" loading="lazy"
                                     src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=400&q=70" />
+                                <span class="hab-tag">Alta</span>
+                                <figcaption>Kick Boxing</figcaption>
                             </figure>
-                            <div class="trend-body">
-                                <div class="trend-head">
-                                    <h4>Kick Boxing</h4><span class="intensity high">Alta</span>
-                                </div>
-                                <div class="trend-meta"><span>Combate</span></div>
-                                <p class="trend-p">T&eacute;cnica, autoconfianza y precisi&oacute;n.</p>
-                            </div>
+                            <p>T&eacute;cnica, autoconfianza y precisi&oacute;n.</p>
+                            <div class="chip">Combate</div>
                         </article>
-                        <article class="trend-card">
-                            <figure><img alt="HIIT" loading="lazy"
+                        <article class="hab-card" style="--c:#ff4d5a">
+                            <figure class="hab-fig">
+                                <img alt="HIIT" loading="lazy"
                                     src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=400&q=70" />
+                                <span class="hab-tag">Alta</span>
+                                <figcaption>HIIT</figcaption>
                             </figure>
-                            <div class="trend-body">
-                                <div class="trend-head">
-                                    <h4>HIIT</h4><span class="intensity high">Alta</span>
-                                </div>
-                                <div class="trend-meta"><span>Intensidad</span></div>
-                                <p class="trend-p">Intervalos intensos con pausas. M&aacute;ximo cardio.</p>
-                            </div>
+                            <p>Intervalos intensos con pausas. M&aacute;ximo cardio.</p>
+                            <div class="chip">Intensidad</div>
                         </article>
-                        <article class="trend-card">
-                            <figure><img alt="CrossFit" loading="lazy"
+                        <article class="hab-card" style="--c:#ff4d5a">
+                            <figure class="hab-fig">
+                                <img alt="CrossFit" loading="lazy"
                                     src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=400&q=70" />
+                                <span class="hab-tag">Alta</span>
+                                <figcaption>CrossFit</figcaption>
                             </figure>
-                            <div class="trend-body">
-                                <div class="trend-head">
-                                    <h4>CrossFit</h4><span class="intensity high">Alta</span>
-                                </div>
-                                <div class="trend-meta"><span>Funcional</span></div>
-                                <p class="trend-p">Levantamientos, gimnasia y cardio integrados.</p>
-                            </div>
+                            <p>Levantamientos, gimnasia y cardio integrados.</p>
+                            <div class="chip">Funcional</div>
                         </article>
-                        <article class="trend-card">
-                            <figure><img alt="Spinning" loading="lazy"
+                        <article class="hab-card" style="--c:#ff4d5a">
+                            <figure class="hab-fig">
+                                <img alt="Spinning" loading="lazy"
                                     src="https://images.unsplash.com/photo-1519505907962-0a6cb0167c73?w=400&q=70" />
+                                <span class="hab-tag">Alta</span>
+                                <figcaption>Spinning</figcaption>
                             </figure>
-                            <div class="trend-body">
-                                <div class="trend-head">
-                                    <h4>Spinning</h4><span class="intensity high">Alta</span>
-                                </div>
-                                <div class="trend-meta"><span>Cardio</span></div>
-                                <p class="trend-p">Bicicleta est&aacute;tica. Resistencia cardiovascular guiada.</p>
-                            </div>
+                            <p>Bicicleta est&aacute;tica. Resistencia cardiovascular guiada.</p>
+                            <div class="chip">Cardio</div>
                         </article>
-                        <article class="trend-card">
-                            <figure><img alt="Taichi" loading="lazy"
+                        <article class="hab-card" style="--c:#3dffc0">
+                            <figure class="hab-fig">
+                                <img alt="Taichi" loading="lazy"
                                     src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=400&q=70" />
+                                <span class="hab-tag">Baja</span>
+                                <figcaption>Taich&iacute;</figcaption>
                             </figure>
-                            <div class="trend-body">
-                                <div class="trend-head">
-                                    <h4>Taich&iacute;</h4><span class="intensity low">Baja</span>
-                                </div>
-                                <div class="trend-meta"><span>Mente-cuerpo</span></div>
-                                <p class="trend-p">Movimientos suaves para control y calma.</p>
-                            </div>
+                            <p>Movimientos suaves para control y calma.</p>
+                            <div class="chip">Mente-cuerpo</div>
                         </article>
                     </div>
                     <!-- <div class="alert-box" style="flex-shrink:0;font-size:.66rem;margin-top:.05rem;">
@@ -717,7 +683,6 @@
                         cr&oacute;nica.
                     </div> -->
                 </div>
-                <div class="pg-label">Tendencias</div>
                 <div class="pg-num">07</div>
             </section>
 
@@ -765,122 +730,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="pg-label">Editorial visual</div>
                 <div class="pg-num">08</div>
             </section>
-
-            <!-- PAG 08: SEGURIDAD + CIERRE (comentada) -->
-            <!-- <section class="page" id="seguridad">
-                <div class="pc">
-                    <div
-                        style="display:grid;grid-template-columns:1fr auto;gap:.6rem;align-items:center;flex-shrink:0;">
-                        <div>
-                            <p class="kicker">Gu&iacute;a r&aacute;pida &middot; Cierre editorial</p>
-                            <h2 class="ttl" style="font-size:clamp(1.2rem,2.6vw,2rem);">Pr&aacute;ctica segura</h2>
-                            <p class="sub" style="font-size:.7rem;">8 recomendaciones antes, durante y despu&eacute;s
-                                del ejercicio.</p>
-                        </div>
-                        <figure class="fig" style="width:115px;">
-                            <img alt="Calentamiento antes del ejercicio" loading="lazy"
-                                src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&q=75"
-                                style="height:78px;" />
-                        </figure>
-                    </div>
-                    <div class="g2" style="flex:1;align-items:start;">
-                        <div style="display:flex;flex-direction:column;gap:.45rem;">
-                            <div class="check-grid">
-                                <article class="check-card">
-                                    <div class="check-mark">&#9312;</div>
-                                    <h3>Calentamiento</h3>
-                                    <p>Activa articulaciones y sistema neuromuscular.</p>
-                                </article>
-                                <article class="check-card">
-                                    <div class="check-mark">&#9313;</div>
-                                    <h3>Hidrataci&oacute;n</h3>
-                                    <p>Agua antes, durante y despu&eacute;s.</p>
-                                </article>
-                                <article class="check-card">
-                                    <div class="check-mark">&#9314;</div>
-                                    <h3>T&eacute;cnica correcta</h3>
-                                    <p>Aprender el gesto antes de aumentar carga.</p>
-                                </article>
-                                <article class="check-card">
-                                    <div class="check-mark">&#9315;</div>
-                                    <h3>Progresi&oacute;n</h3>
-                                    <p>Aumentar volumen e intensidad poco a poco.</p>
-                                </article>
-                                <article class="check-card">
-                                    <div class="check-mark">&#9316;</div>
-                                    <h3>Descanso</h3>
-                                    <p>Espaciar sesiones exigentes. Dormir bien.</p>
-                                </article>
-                                <article class="check-card">
-                                    <div class="check-mark">&#9317;</div>
-                                    <h3>Indumentaria</h3>
-                                    <p>Ropa y calzado adecuados para cada actividad.</p>
-                                </article>
-                                <article class="check-card">
-                                    <div class="check-mark">&#9318;</div>
-                                    <h3>Escuchar el cuerpo</h3>
-                                    <p>Fatiga, mareo o dolor agudo: detenerse.</p>
-                                </article>
-                                <article class="check-card">
-                                    <div class="check-mark">&#9319;</div>
-                                    <h3>Asesor&iacute;a profesional</h3>
-                                    <p>Ante lesi&oacute;n, embarazo o enfermedad cr&oacute;nica.</p>
-                                </article>
-                            </div>
-                            <div class="callout" style="font-size:.7rem;">El <strong>ACSM</strong> recomienda integrar
-                                calentamiento, fuerza, flexibilidad y ejercicio neuromotor ajustados a cada persona.
-                            </div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:.5rem;height:100%;">
-            <figure class="fig" style="flex:1;">
-                <img alt="Grupo haciendo ejercicio al aire libre" loading="lazy"
-                    src="https://images.unsplash.com/photo-1546483875-ad9014c88eba?w=800&q=75"
-                    style="height:100%;max-height:190px;" />
-                <figcaption>Entrenar con t&eacute;cnica y preparaci&oacute;n da mejores resultados.
-                </figcaption>
-            </figure>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.32rem;flex-shrink:0;">
-                <figure style="border-radius:7px;overflow:hidden;border:1px solid var(--line);"><img alt="Yoga"
-                        loading="lazy" src="https://images.unsplash.com/photo-1518459031867-a89b944bffe4?w=200&q=65"
-                        style="width:100%;height:42px;object-fit:cover;" /></figure>
-                <figure style="border-radius:7px;overflow:hidden;border:1px solid var(--line);"><img alt="Ciclismo"
-                        loading="lazy" src="https://images.unsplash.com/photo-1517649763962-0c623066013b?w=200&q=65"
-                        style="width:100%;height:42px;object-fit:cover;" /></figure>
-                <figure style="border-radius:7px;overflow:hidden;border:1px solid var(--line);"><img alt="Natacion"
-                        loading="lazy" src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?w=200&q=65"
-                        style="width:100%;height:42px;object-fit:cover;" /></figure>
-            </div>
-            <div class="quote-box" style="font-size:.76rem;flex-shrink:0;">&ldquo;La calidad del
-                entrenamiento exige preparaci&oacute;n, control t&eacute;cnico y decisiones
-                responsables.&rdquo;</div>
-            <div
-                style="padding:.6rem;background:rgba(255,255,255,.04);border-radius:11px;border:1px solid var(--line);font-size:.67rem;flex-shrink:0;">
-                <div
-                    style="color:#ffd23f;font-weight:800;letter-spacing:.1em;font-size:.62rem;text-transform:uppercase;margin-bottom:.3rem;">
-                    &#128218; Referencias</div>
-                <ul class="mini-list" style="gap:.22rem;">
-                    <li>UNESCO &mdash; Educaci&oacute;n F&iacute;sica de Calidad (EFC)</li>
-                    <li>OMS &mdash; Directrices 2020 sobre actividad f&iacute;sica</li>
-                    <li>ACSM &mdash; Position Stand: Exercise Prescription (2022)</li>
-                    <li>Ruiz P&eacute;rez, L.M. (2004) &mdash; Competencia motriz</li>
-                </ul>
-            </div>
-            <div
-                style="display:flex;justify-content:space-between;align-items:center;padding-top:.35rem;border-top:1px solid var(--line);flex-shrink:0;">
-                <div style="font-size:.61rem;color:#8fa3ba;letter-spacing:.1em;text-transform:uppercase;">
-                    Movimiento en Acci&oacute;n &middot; Educaci&oacute;n F&iacute;sica</div>
-                <div style="font-size:.61rem;color:#8fa3ba;">Medellín, Colombia 2026</div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <div class="pg-label">Seguridad &middot; Cierre</div>
-    <div class="pg-num">07</div>
-    </section> -->
-
         </div>
 
         <div class="flip-controls">

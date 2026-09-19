@@ -281,110 +281,120 @@ button {
     gap: .55rem;
 }
 
-.g-hero {
-    display: grid;
-    grid-template-columns: 1.2fr .8fr;
-    gap: 1rem;
-    align-items: end;
-    height: 100%;
-}
-
-.hero-copy {
-    align-self: end;
-    padding-bottom: .8rem;
-}
-
+/* --- PAG 01: Portada (estructura clásica de revista) --- */
 .hero-page {
     background: linear-gradient(165deg, rgba(3, 8, 14, .1) 0%, rgba(3, 8, 14, .75) 55%, rgba(3, 8, 14, .97) 100%), url('https://images.unsplash.com/photo-1517649763962-0c623066013b?w=1400&q=80') center/cover no-repeat;
 }
 
-.eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: .5rem;
-    padding: .3rem .75rem;
-    border: 1px solid rgba(255, 255, 255, .2);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, .07);
-    color: #ffe7a0;
-    font-weight: 700;
-    font-size: .68rem;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    margin-bottom: .5rem;
+.pc--cover {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    padding: .7rem 1.1rem .85rem;
 }
 
-.hero-ttl {
+/* Masthead */
+.cover-mast {
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.mast-name {
     font-family: var(--font-head);
     font-weight: 900;
-    font-size: clamp(2.2rem, 6.5vw, 5rem);
-    line-height: .88;
-    letter-spacing: -.06em;
-    margin-bottom: .55rem;
+    font-size: clamp(4rem, 12vw, 8rem);
+    line-height: .86;
+    letter-spacing: -.05em;
+    color: var(--text);
+    white-space: nowrap;
+    text-shadow: 0 6px 32px rgba(0, 0, 0, .75);
 }
 
-.hero-ttl span {
+.mast-name span {
     color: var(--yellow);
 }
 
-.hero-p {
-    color: #cdd9e8;
-    font-size: .83rem;
-    max-width: 44ch;
-    line-height: 1.5;
-    margin-bottom: .75rem;
+/* Issue and dateline (al pie) */
+.cover-topline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+    flex-shrink: 0;
 }
 
-.hero-quote {
-    border-left: 3px solid var(--yellow);
-    padding: .5rem .8rem;
-    background: rgba(255, 255, 255, .06);
-    font-size: .78rem;
-    color: #ffe7a0;
-    max-width: 46ch;
-    margin-bottom: .85rem;
-    border-radius: 0 10px 10px 0;
-}
-
-.cover-meta {
-    align-self: end;
-    background: rgba(6, 11, 17, .75);
-    border: 1px solid rgba(255, 255, 255, .14);
-    border-radius: 18px;
-    padding: .85rem;
-    backdrop-filter: blur(10px);
-    margin-bottom: .8rem;
-}
-
-.meta-title {
-    font-size: .66rem;
-    color: #ffe7a0;
+.cover-date {
+    font-size: .62rem;
+    letter-spacing: .14em;
     text-transform: uppercase;
+    color: rgba(205, 217, 232, .7);
+    white-space: nowrap;
+}
+
+.cover-date i {
+    font-style: normal;
+    color: rgba(255, 255, 255, .3);
+    margin: 0 .3rem;
+}
+
+.mast-tag {
+    flex-shrink: 0;
+    background: linear-gradient(135deg, var(--yellow), var(--orange));
+    color: #111;
+    font-weight: 900;
+    font-size: .55rem;
     letter-spacing: .16em;
-    font-weight: 800;
-    margin-bottom: .55rem;
+    text-transform: uppercase;
+    padding: .2rem .55rem;
+    border-radius: 4px;
+    white-space: nowrap;
 }
 
-.meta-row {
-    font-size: .76rem;
-    line-height: 1.75;
-    color: #d9e9f7;
+/* Cover lines — de la mitad hacia abajo, izq / der */
+.cover-lines {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: .45rem;
+    padding: 0 0 5rem;
 }
 
-.editable {
-    padding: .05rem .3rem;
-    border-radius: 6px;
-    outline: none;
-    background: rgba(255, 255, 255, .08);
-    border: 1px dashed rgba(255, 255, 255, .18);
-    display: inline-block;
-    min-width: 5ch;
-    font-size: .76rem;
+.cover-line {
+    max-width: 48ch;
 }
 
-.editable:focus {
-    border-color: var(--yellow);
+.cover-line--left {
+    align-self: flex-start;
 }
+
+.cover-line--right {
+    align-self: flex-end;
+    text-align: right;
+}
+
+.cover-line strong {
+    display: block;
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: clamp(1.3rem, 3.2vw, 1.65rem);
+    line-height: .95;
+    letter-spacing: .03em;
+    color: #fff;
+    text-shadow: 0 3px 16px rgba(0, 0, 0, .9), 0 1px 4px rgba(0, 0, 0, .7);
+}
+
+.cover-line span {
+    display: block;
+    margin-top: .22rem;
+    font-size: .88rem;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, .75);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, .9);
+}
+
+/* (cover-lead eliminado — todas las coverlines son iguales) */
 
 .toc-item {
     display: flex;
@@ -861,26 +871,6 @@ button {
     flex-shrink: 0;
 }
 
-/* --- PAG 01: Portada --- */
-.pc--cover {
-    padding: 0;
-}
-
-#portada .g-hero {
-    padding: 1.1rem 1.3rem 1.5rem;
-}
-
-.meta-row--inst {
-    margin-top: .4rem;
-}
-
-.meta-row--doc {
-    margin-top: .3rem;
-}
-
-.meta-row--date {
-    margin-top: .28rem;
-}
 
 /* --- PAG 02: Editorial --- */
 #editorial .pc {
@@ -1039,15 +1029,7 @@ button {
     flex: 1;
 }
 
-#habilidades .phys-card .fig {
-    margin-bottom: .18rem;
-}
 
-#habilidades .phys-card .fig img {
-    height: 120px;
-    object-fit: cover;
-    width: 100%;
-}
 
 
 /* --- PAG 05: Tendencias --- */
@@ -1175,6 +1157,7 @@ button {
 #tendencias-2 .pg-num {
     color: rgba(255, 255, 255, .45);
 }
+
 /* --- PAG 02: INDICE --- */
 .idx-wrap {
     display: flex;
@@ -1489,7 +1472,7 @@ button {
 }
 
 /* Tarjetas de habilidades con imagen: básicas, complejas y específicas */
-#motricidad .hab-card {
+.hab-card {
     display: flex;
     flex-direction: column;
     gap: .22rem;
@@ -1500,7 +1483,7 @@ button {
     border-top: 3px solid var(--c);
 }
 
-#motricidad .hab-fig {
+.hab-fig {
     position: relative;
     margin: 0 0 .1rem;
     border-radius: 9px;
@@ -1510,7 +1493,7 @@ button {
     min-height: 96px;
 }
 
-#motricidad .hab-fig img {
+.hab-fig img {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -1520,7 +1503,7 @@ button {
 }
 
 /* velo degradado para leer los textos sobre la imagen */
-#motricidad .hab-fig::after {
+.hab-fig::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -1528,7 +1511,7 @@ button {
 }
 
 /* etiqueta de categoría sobre la imagen */
-#motricidad .hab-tag {
+.hab-tag {
     position: absolute;
     top: .32rem;
     left: .32rem;
@@ -1544,7 +1527,7 @@ button {
 }
 
 /* título sobre la imagen */
-#motricidad .hab-fig figcaption {
+.hab-fig figcaption {
     position: absolute;
     left: .45rem;
     right: .45rem;
@@ -1552,27 +1535,71 @@ button {
     z-index: 2;
     font-family: var(--font-head);
     font-weight: 900;
-    font-size: .8rem;
+    font-size: 1.5rem;
     line-height: 1.05;
     color: #fff;
 }
 
 /* descripción y chip de cada tarjeta de habilidad */
-#motricidad .hab-card > p {
+.hab-card>p {
     font-size: .68rem;
     color: var(--muted);
     line-height: 1.4;
 }
 
-#motricidad .hab-card .chip {
+.hab-card .chip {
     margin-top: auto;
     align-self: flex-start;
     font-size: .6rem;
 }
 
-/* las dos filas de habilidades crecen para ocupar toda la página */
-#motricidad .hab-fill {
+/* las filas de habilidades crecen para ocupar toda la página */
+.hab-fill {
     flex: 1 1 auto;
+}
+
+/* --- Ajustes de tamaño para la grilla de tendencias (4x4, cards más pequeñas) --- */
+#tendencias .hab-fig {
+    min-height: 56px;
+}
+
+#tendencias .hab-fig figcaption {
+    font-size: 1rem;
+    left: .28rem;
+    right: .28rem;
+    bottom: .18rem;
+}
+
+#tendencias .hab-tag {
+    font-size: .42rem;
+    padding: .1rem .3rem;
+    top: .2rem;
+    left: .2rem;
+}
+
+#tendencias .hab-card {
+    padding: .28rem;
+    gap: .14rem;
+}
+
+#tendencias .hab-card>p {
+    font-size: .58rem;
+    line-height: 1.28;
+}
+
+#tendencias .hab-card .chip {
+    font-size: .5rem;
+    padding: .1rem .32rem;
+    margin-top: .06rem;
+}
+
+/* --- Ajustes para las capacidades físicas (2x2 grid) --- */
+#habilidades .hab-fig {
+    min-height: 80px;
+}
+
+#habilidades .hab-card>p {
+    font-size: .66rem;
 }
 
 @media print {
