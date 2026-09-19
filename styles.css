@@ -555,18 +555,6 @@ button {
     border: 1px solid var(--line);
 }
 
-.motriz-icon {
-    width: 34px;
-    height: 34px;
-    border-radius: 9px;
-    display: grid;
-    place-items: center;
-    background: linear-gradient(135deg, rgba(255, 210, 63, .18), rgba(255, 77, 90, .1));
-    border: 1px solid var(--line);
-    font-size: 1rem;
-    margin-bottom: .35rem;
-}
-
 .motriz-card h3 {
     font-size: .82rem;
     font-weight: 800;
@@ -1032,7 +1020,7 @@ button {
     gap: .28rem;
 }
 
-/* --- PAG 04: Habilidades motrices + capacidades físicas --- */
+/* --- PAG 06: Capacidades coordinativas + físicas --- */
 #habilidades .pc {
     gap: .45rem;
 }
@@ -1040,16 +1028,6 @@ button {
 #habilidades .ttl {
     font-size: clamp(1.1rem, 2.4vw, 1.9rem);
     flex-shrink: 0;
-}
-
-#habilidades .motriz-card .fig {
-    margin-bottom: .3rem;
-}
-
-#habilidades .motriz-card .fig img {
-    height: 120px;
-    object-fit: cover;
-    width: 100%;
 }
 
 #habilidades .coord-card p {
@@ -1196,6 +1174,405 @@ button {
 #tendencias-2 .pg-label,
 #tendencias-2 .pg-num {
     color: rgba(255, 255, 255, .45);
+}
+/* --- PAG 02: INDICE --- */
+.idx-wrap {
+    display: flex;
+    gap: .9rem;
+    flex: 1;
+    min-height: 0;
+}
+
+.idx-side {
+    display: flex;
+    gap: .9rem;
+    flex: 0 0 auto;
+    min-height: 0;
+}
+
+.idx-vertical {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: center;
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    letter-spacing: .18em;
+    line-height: 1;
+    margin: 0;
+    white-space: nowrap;
+    background: linear-gradient(180deg, var(--yellow), var(--orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--yellow);
+}
+
+.idx-divider {
+    width: 2.5px;
+    align-self: stretch;
+    background: linear-gradient(180deg, var(--yellow), var(--orange), transparent);
+    border-radius: 2px;
+}
+
+.idx-main {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .55rem;
+}
+
+.idx-photos {
+    flex: 0 0 auto;
+    height: 48%;
+    min-height: 0;
+    max-width: 92%;
+    display: grid;
+    grid-template-columns: .62fr .42fr;
+    grid-template-rows: 1fr 1fr;
+    gap: .5rem;
+}
+
+.idx-photos-col {
+    display: contents;
+}
+
+.idx-photo {
+    margin: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    min-height: 0;
+    min-width: 0;
+}
+
+.idx-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.idx-photo--tall {
+    grid-column: 1;
+    grid-row: 1 / 3;
+}
+
+.idx-photo--sq {
+    grid-column: 2;
+}
+
+.idx-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .45rem;
+    min-width: 0;
+    min-height: 0;
+}
+
+.idx-item {
+    display: flex;
+    align-items: baseline;
+    gap: .9rem;
+    padding: .5rem .8rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+}
+
+.idx-num {
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: clamp(1.1rem, 2.6vw, 1.8rem);
+    color: var(--yellow);
+    flex-shrink: 0;
+    min-width: 2ch;
+}
+
+.idx-body {
+    display: flex;
+    flex-direction: column;
+    gap: .12rem;
+    min-width: 0;
+}
+
+.idx-ttl {
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: clamp(1.15rem, 2.6vw, 1.8rem);
+    line-height: 1.05;
+    letter-spacing: -.01em;
+}
+
+.idx-phrase {
+    color: var(--muted);
+    font-size: clamp(.68rem, 1.4vw, .88rem);
+    line-height: 1.35;
+}
+
+@media print {
+    .idx-item {
+        color: var(--text);
+        cursor: default;
+    }
+}
+
+/* --- PAG 04: Linea temporal del desarrollo psicomotor --- */
+.tl-head {
+    flex-shrink: 0;
+}
+
+.tl-head .ttl {
+    font-size: clamp(1.15rem, 2.4vw, 1.9rem);
+}
+
+#etapas .tl-head .ttl {
+    font-size: clamp(1rem, 2.1vw, 1.5rem);
+    line-height: 1;
+}
+
+.tl-head .sub {
+    margin-top: .12rem;
+    font-size: .7rem;
+}
+
+#etapas .tl-head .sub {
+    margin-top: .08rem;
+    font-size: .64rem;
+}
+
+.timeline {
+    list-style: none;
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .28rem;
+    position: relative;
+    margin: 0;
+    padding: 0 0 0 1.6rem;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    bottom: 10px;
+    width: 3px;
+    border-radius: 3px;
+    background: linear-gradient(180deg, #3a8fd8, #57c268, #f2c230, #ff8a3d, #ff4d5a, #d63c6e);
+}
+
+.tl-item {
+    position: relative;
+    display: flex;
+    min-height: 0;
+}
+
+.tl-dot {
+    position: absolute;
+    left: -1.6rem;
+    top: .4rem;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--c);
+    border: 2px solid var(--panel-2);
+    box-shadow: 0 0 0 2px var(--c);
+}
+
+.tl-card {
+    flex: 1;
+    min-width: 0;
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--c);
+    border-radius: 10px;
+    padding: .3rem .6rem;
+}
+
+.tl-row {
+    display: flex;
+    align-items: baseline;
+    gap: .45rem;
+    flex-wrap: wrap;
+}
+
+.tl-age {
+    background: var(--c);
+    color: #08131f;
+    font-weight: 800;
+    font-size: .58rem;
+    letter-spacing: .02em;
+    padding: .08rem .45rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.tl-card h3 {
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: clamp(.78rem, 1.7vw, 1.02rem);
+    line-height: 1.15;
+}
+
+.tl-p {
+    color: var(--muted);
+    font-size: clamp(.6rem, 1.15vw, .72rem);
+    line-height: 1.25;
+    margin-top: .04rem;
+}
+
+/* Franja panorámica: etapas del desarrollo humano */
+#etapas .pc {
+    gap: .32rem;
+}
+
+.tl-fig {
+    flex: 0 0 auto;
+    margin: 0 -1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.tl-fig img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, .45));
+}
+
+.tl-fig figcaption {
+    position: static;
+    padding: 0 .6rem;
+    font-size: .68rem;
+    letter-spacing: .02em;
+    color: var(--muted);
+    text-align: center;
+    background: none;
+}
+
+
+/* --- PAG 05: Motricidad y habilidades motrices (Sesión 5) --- */
+#motricidad .pc {
+    gap: .45rem;
+}
+
+#motricidad .ttl {
+    flex-shrink: 0;
+    font-size: clamp(1.1rem, 2.4vw, 1.9rem);
+}
+
+#motricidad .tl-head .sub {
+    margin-top: .12rem;
+    font-size: .7rem;
+}
+
+#motricidad .motriz-card .fig {
+    margin-bottom: .3rem;
+}
+
+#motricidad .motriz-card .fig img {
+    height: 92px;
+    object-fit: cover;
+}
+
+#motricidad .motriz-card h3 {
+    font-size: .76rem;
+}
+
+/* Tarjetas de habilidades con imagen: básicas, complejas y específicas */
+#motricidad .hab-card {
+    display: flex;
+    flex-direction: column;
+    gap: .22rem;
+    padding: .4rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--c);
+}
+
+#motricidad .hab-fig {
+    position: relative;
+    margin: 0 0 .1rem;
+    border-radius: 9px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    flex: 1 1 auto;
+    min-height: 96px;
+}
+
+#motricidad .hab-fig img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* velo degradado para leer los textos sobre la imagen */
+#motricidad .hab-fig::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(6, 13, 22, 0) 38%, rgba(6, 13, 22, .85) 100%);
+}
+
+/* etiqueta de categoría sobre la imagen */
+#motricidad .hab-tag {
+    position: absolute;
+    top: .32rem;
+    left: .32rem;
+    z-index: 2;
+    font-size: .52rem;
+    font-weight: 900;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #08131f;
+    background: var(--c);
+    padding: .14rem .42rem;
+    border-radius: 999px;
+}
+
+/* título sobre la imagen */
+#motricidad .hab-fig figcaption {
+    position: absolute;
+    left: .45rem;
+    right: .45rem;
+    bottom: .28rem;
+    z-index: 2;
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: .8rem;
+    line-height: 1.05;
+    color: #fff;
+}
+
+/* descripción y chip de cada tarjeta de habilidad */
+#motricidad .hab-card > p {
+    font-size: .68rem;
+    color: var(--muted);
+    line-height: 1.4;
+}
+
+#motricidad .hab-card .chip {
+    margin-top: auto;
+    align-self: flex-start;
+    font-size: .6rem;
+}
+
+/* las dos filas de habilidades crecen para ocupar toda la página */
+#motricidad .hab-fill {
+    flex: 1 1 auto;
 }
 
 @media print {
