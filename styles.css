@@ -674,6 +674,13 @@ button {
     gap: .38rem;
 }
 
+.g4x4-r {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 1fr;
+    gap: .38rem;
+}
+
 .trend-head {
     display: flex;
     justify-content: space-between;
@@ -1054,7 +1061,9 @@ button {
     color: #ffadb5;
 }
 
-#tendencias .g4x4 {
+#tendencias .g4x4,
+#tendencias .g4x4-r,
+#tendencias-p2 .g4x4-r {
     flex: 1;
 }
 
@@ -1558,36 +1567,42 @@ button {
     flex: 1 1 auto;
 }
 
-/* --- Ajustes de tamaño para la grilla de tendencias (4x4, cards más pequeñas) --- */
-#tendencias .hab-fig {
+/* --- Ajustes de tamaño para la grilla de tendencias (cards más pequeñas) --- */
+#tendencias .hab-fig,
+#tendencias-p2 .hab-fig {
     min-height: 56px;
 }
 
-#tendencias .hab-fig figcaption {
+#tendencias .hab-fig figcaption,
+#tendencias-p2 .hab-fig figcaption {
     font-size: 1rem;
     left: .28rem;
     right: .28rem;
     bottom: .18rem;
 }
 
-#tendencias .hab-tag {
+#tendencias .hab-tag,
+#tendencias-p2 .hab-tag {
     font-size: .42rem;
     padding: .1rem .3rem;
     top: .2rem;
     left: .2rem;
 }
 
-#tendencias .hab-card {
+#tendencias .hab-card,
+#tendencias-p2 .hab-card {
     padding: .28rem;
     gap: .14rem;
 }
 
-#tendencias .hab-card>p {
+#tendencias .hab-card>p,
+#tendencias-p2 .hab-card>p {
     font-size: .58rem;
     line-height: 1.28;
 }
 
-#tendencias .hab-card .chip {
+#tendencias .hab-card .chip,
+#tendencias-p2 .hab-card .chip {
     font-size: .5rem;
     padding: .1rem .32rem;
     margin-top: .06rem;
