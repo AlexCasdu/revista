@@ -1717,13 +1717,14 @@ button {
     letter-spacing: .05em;
 }
 
-/* ===== NOTA bajo el grid de capacidades (fuente: Sesion 6) ===== */
-.coord-nota {
-    flex-shrink: 0;
-    font-size: .68rem;
-    color: var(--muted);
-    line-height: 1.4;
-}
+/* ===== NOTA capacidades (fuente: Sesion 6) ===== */
+.coord-nota { flex-shrink: 0; font-size: .74rem; color: var(--muted); line-height: 1.4; }
+
+/* ===== TENDENCIAS: tarjetas destacadas a doble ancho ===== */
+.g4x4-r .hab-card--wide { grid-column: span 2; }
+#tendencias .hab-card--wide .hab-fig,
+#tendencias-p2 .hab-card--wide .hab-fig { min-height: 62px; }
+.g4x4-r .hab-card--wide .hab-fig figcaption { font-size: 1.2rem; }
 
 /* ================================================
    UPGRADE VISUAL GLOBAL
@@ -1885,4 +1886,5 @@ button {
 
 @media (max-width: 420px) {
     .ed-body { grid-template-columns: 1fr; }
+    .g4x4-r .hab-card--wide { grid-column: span 2; }
 }
